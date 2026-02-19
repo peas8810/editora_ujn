@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Journals Network | Excelência em Publicações Científicas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #212529;
+        }
+
+        /* ===== LANGUAGE SELECTOR ===== */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #dee2e6;
+        }
+
+        .lang-btn {
+            padding: 8px 14px;
+            border: 2px solid #1e40af;
+            background: white;
+            color: #1e40af;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .lang-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== HEADER ===== */
+        .header-premium {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            padding: 50px 30px;
+            text-align: center;
+            border-bottom: 4px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-logo {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            color: #e0e7ff;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .header-tagline {
+            font-size: 13px;
+            color: #d4af37;
+            letter-spacing: 0.8px;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .wrapper {
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+
+        .container-main {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HIDDEN CONTENT ===== */
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+
+        /* ===== INTRO SECTION ===== */
+        .intro-premium {
+            background-color: #ffffff;
+            padding: 45px 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #dee2e6;
+            margin-bottom: 40px;
+            border-left: 4px solid #d4af37;
+        }
+
+        .intro-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e40af;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .intro-text strong {
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        /* ===== REVISTAS SECTION ===== */
+        .revistas-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title-premium {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1e40af;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #d4af37;
+            letter-spacing: 0.5px;
+        }
+
+        .revistas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .revista-card-premium {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .revista-card-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af 0%, #d4af37 100%);
+        }
+
+        .revista-card-premium:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .revista-header-premium {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revista-header-premium::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .revista-name {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .revista-subtitle {
+            font-size: 13px;
+            color: #e0e7ff;
+            letter-spacing: 0.8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .revista-body {
+            padding: 25px;
+        }
+
+        .revista-meta-info {
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            border-left: 3px solid #1e40af;
+        }
+
+        .revista-meta-info strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .revista-meta-info span {
+            color: #495057;
+        }
+
+        .qualis-badge-premium {
+            display: inline-block;
+            background-color: #d4af37;
+            color: #1e3a8a;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .revista-description {
+            font-size: 14px;
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .revista-areas {
+            background-color: #f8f9fa;
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            border-left: 3px solid #d4af37;
+        }
+
+        .revista-areas strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .revista-areas span {
+            color: #495057;
+        }
+
+        .revista-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .revista-link-premium {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+        }
+
+        .revista-link-premium:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1c357a 100%);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .revista-linkedin {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .revista-linkedin:hover {
+            background: linear-gradient(135deg, #005885 0%, #003d5c 100%);
+            box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .linkedin-icon {
+            margin-right: 6px;
+            font-size: 14px;
+        }
+
+        /* ===== EDITORA SECTION ===== */
+        .editora-premium {
+            background-color: #ffffff;
+            padding: 45px 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #dee2e6;
+            border-left: 4px solid #d4af37;
+            margin-bottom: 40px;
+        }
+
+        .editora-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1e40af;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #d4af37;
+            letter-spacing: 0.5px;
+        }
+
+        .editora-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .editora-text p {
+            font-size: 15px;
+            color: #495057;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .editora-text p strong {
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        .editora-services {
+            background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%);
+            padding: 28px;
+            border-radius: 8px;
+            border-left: 4px solid #1e40af;
+        }
+
+        .editora-services-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .service-item-premium {
+            padding: 12px 0;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 14px;
+            color: #495057;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .service-item-premium:last-child {
+            border-bottom: none;
+        }
+
+        .service-item-premium::before {
+            content: '★';
+            color: #d4af37;
+            font-weight: bold;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .editora-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .editora-link-premium {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+        }
+
+        .editora-link-premium:hover {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1c357a 100%);
+            box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .editora-linkedin {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .editora-linkedin:hover {
+            background: linear-gradient(135deg, #005885 0%, #003d5c 100%);
+            box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-premium {
+            background-color: #1e3a8a;
+            padding: 40px 30px;
+            border-top: 4px solid #d4af37;
+            text-align: center;
+            color: #e0e7ff;
+            margin-top: 60px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-content {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact {
+            margin: 20px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #d4af37;
+        }
+
+        .footer-contact a {
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            font-size: 12px;
+            color: #a0aec0;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media only screen and (max-width: 768px) {
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                gap: 5px;
+                padding: 8px 10px;
+            }
+
+            .lang-btn {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .header-logo {
+                font-size: 32px;
+            }
+
+            .header-subtitle {
+                font-size: 13px;
+            }
+
+            .intro-title {
+                font-size: 22px;
+            }
+
+            .section-title-premium {
+                font-size: 20px;
+            }
+
+            .editora-title {
+                font-size: 20px;
+            }
+
+            .revistas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .editora-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .intro-premium,
+            .editora-premium {
+                padding: 30px 25px;
+            }
+
+            .revista-body {
+                padding: 20px;
+            }
+
+            .container-main {
+                padding: 0 15px;
+            }
+
+            .header-premium {
+                padding: 35px 20px;
+            }
+
+            .revista-links {
+                flex-direction: column;
+            }
+
+            .revista-link-premium,
+            .revista-linkedin {
+                width: 100%;
+            }
+
+            .editora-links {
+                flex-direction: column;
+            }
+
+            .editora-link-premium,
+            .editora-linkedin {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .header-logo {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .header-subtitle {
+                font-size: 12px;
+            }
+
+            .intro-title {
+                font-size: 18px;
+            }
+
+            .section-title-premium {
+                font-size: 18px;
+            }
+
+            .revista-name {
+                font-size: 18px;
+            }
+
+            .footer-links a {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- LANGUAGE SELECTOR -->
+    <div class="language-selector">
+        <button class="lang-btn active" onclick="changeLanguage('pt')">PT</button>
+        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="changeLanguage('es')">ES</button>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header-premium">
+        <div class="header-content">
+            <div class="header-logo">UNIFIED JOURNALS NETWORK</div>
+            <div class="header-subtitle" id="header-subtitle">Excelência em Publicações Científicas</div>
+            <div class="header-tagline" id="header-tagline">Rigor • Integridade • Impacto Global</div>
+        </div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="wrapper">
+        <div class="container-main">
+            <!-- PORTUGUESE VERSION -->
+            <div class="language-content active" id="content-pt">
+                <!-- INTRO SECTION -->
+                <div class="intro-premium">
+                    <div class="intro-title">Bem-vindo ao Portal de Publicações de Excelência</div>
+                    <p class="intro-text">
+                        A <strong>Unified Journals Network (UJN)</strong> é uma rede editorial de prestígio dedicada à publicação de periódicos científicos 
+                        e obras acadêmicas de alto impacto. Com mais de 9 anos de experiência na gestão de editoras de instituições de ensino, oferecemos 
+                        suporte avançado a pesquisadores, instituições e programas de pós-graduação.
+                    </p>
+                    <p class="intro-text">
+                        Nossas publicações abrangem múltiplas áreas do conhecimento, promovendo diálogo interdisciplinar e contribuindo para o fortalecimento 
+                        da ciência no Brasil e no mundo. Cada periódico é submetido a rigor metodológico, revisão por pares e compromisso absoluto com a 
+                        integridade científica.
+                    </p>
+                </div>
+
+                <!-- REVISTAS SECTION -->
+                <div class="revistas-section">
+                    <h2 class="section-title-premium">Nossas Revistas Científicas</h2>
+
+                    <div class="revistas-grid">
+                        <!-- REMUNOM -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">REMUNOM</div>
+                                <div class="revista-subtitle">Revista Multidisciplinar do Nordeste Mineiro</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2178-6925</strong>
+                                    <span>Categoria Diamante do IBICT</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS A2 (2021-2024)</div>
+                                <p class="revista-description">
+                                    Revista com alcance nacional e internacional, dedicada à publicação de artigos científicos, revisões e ensaios críticos 
+                                    em múltiplas áreas do conhecimento. Promove pesquisa original e de alto impacto.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Atuação:</strong>
+                                    <span>Multidisciplinar - Todas as áreas do conhecimento</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="revista-link-premium">
+                                        Acessar Revista
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JIRRS -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">JIRRS</div>
+                                <div class="revista-subtitle">Journal International Review of Research Studies</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 3086-3600</strong>
+                                    <span>Revista Internacional de Prestígio</span>
+                                </div>
+                                <div class="qualis-badge-premium" style="background-color: #28a745; color: white;">REVISTA INTERNACIONAL</div>
+                                <p class="revista-description">
+                                    Revista revisada por pares, de acesso aberto, publicada do Reino Unido. Dedicada à disseminação de pesquisa científica 
+                                    de alta qualidade em um amplo espectro de disciplinas acadêmicas.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Atuação:</strong>
+                                    <span>Ciências, Tecnologia, Engenharia, Ciências Sociais e Humanidades</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="revista-link-premium">
+                                        Acessar Revista
+                                    </a>
+                                    <a href="http://linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RSV -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">RSV</div>
+                                <div class="revista-subtitle">Revista Saúde Dos Vales</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2674-8584</strong>
+                                    <span>Foco em Saúde e Interdisciplinar</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS B4</div>
+                                <p class="revista-description">
+                                    Periódico científico dedicado à produção acadêmica interdisciplinar, comprometido com excelência, relevância social 
+                                    e rigor metodológico. Publica estudos contextualizados na realidade brasileira.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Atuação:</strong>
+                                    <span>Saúde, Tecnologia, Interdisciplinar</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="revista-link-premium">
+                                        Acessar Revista
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RJNM -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">RJNM</div>
+                                <div class="revista-subtitle">Revista Jurídica do Nordeste Mineiro</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2675-4312</strong>
+                                    <span>Foco em Ciências Jurídicas</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS B3 (2021-2024)</div>
+                                <p class="revista-description">
+                                    Revista dedicada a pesquisas e estudos multidisciplinares. Visa fomentar o intercâmbio de informações e experiências 
+                                    nas carreiras jurídicas, divulgando estudos científicos de relevância.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Atuação:</strong>
+                                    <span>Administração, Direito, Ciências Contábeis, Sociologia, Turismo</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="revista-link-premium">
+                                        Acessar Revista
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDITORA SECTION -->
+                <div class="editora-premium">
+                    <h2 class="editora-title">Editora UJN - Publicações em Ebook</h2>
+                    <div class="editora-grid">
+                        <div class="editora-text">
+                            <p>
+                                A <strong>Editora UJN</strong> é a divisão de publicação de ebooks da Unified Journals Network, dedicada à publicação 
+                                de obras acadêmicas de alto impacto. Com mais de 9 anos de experiência na gestão de editoras de instituições de ensino, 
+                                oferecemos rigor metodológico, revisão por pares e compromisso absoluto com a integridade científica.
+                            </p>
+                            <p>
+                                Nossas publicações abrangem múltiplas áreas do conhecimento, promovendo diálogo interdisciplinar e contribuindo para 
+                                o fortalecimento da ciência no Brasil e no mundo. Integramos serviços modernos com tecnologias emergentes, especialmente 
+                                soluções baseadas em Inteligência Artificial para potencializar a visibilidade e o impacto de suas obras.
+                            </p>
+                            <div class="editora-links">
+                                <a href="https://editora.ujn.ojsbr.com/ujn" target="_blank" class="editora-link-premium">
+                                    Acessar Editora
+                                </a>
+                                <a href="https://www.linkedin.com/company/editora-unified-journals-network-ujn/?viewAsMember=true" target="_blank" class="editora-linkedin">
+                                    <span class="linkedin-icon">in</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="editora-services">
+                            <div class="editora-services-title">Serviços Tecnológicos Avançados</div>
+                            <div class="service-item-premium">Sistema de Potencialização de Citação com IA</div>
+                            <div class="service-item-premium">Sistema de Detecção de Plágio com IA</div>
+                            <div class="service-item-premium">Avaliação do Percentual de IA em Escrita</div>
+                            <div class="service-item-premium">Sistema de Padronização LaTex com IA</div>
+                            <div class="service-item-premium">Sistema de Conversão de PDF com IA</div>
+                            <div class="service-item-premium">Suporte Avançado a Pesquisadores</div>
+                            <div class="service-item-premium">Apoio a Instituições e Pós-Graduação</div>
+                            <div class="service-item-premium">Amplificação de Visibilidade Científica</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENGLISH VERSION -->
+            <div class="language-content" id="content-en">
+                <!-- INTRO SECTION -->
+                <div class="intro-premium">
+                    <div class="intro-title">Welcome to the Excellence Publications Portal</div>
+                    <p class="intro-text">
+                        <strong>Unified Journals Network (UJN)</strong> is a prestigious editorial network dedicated to publishing high-impact scientific 
+                        journals and academic works. With over 9 years of experience managing academic publishing houses, we offer advanced support to 
+                        researchers, institutions, and postgraduate programs.
+                    </p>
+                    <p class="intro-text">
+                        Our publications span multiple areas of knowledge, promoting interdisciplinary dialogue and contributing to the strengthening 
+                        of science in Brazil and worldwide. Each journal is subject to rigorous methodology, peer review, and absolute commitment to 
+                        scientific integrity.
+                    </p>
+                </div>
+
+                <!-- REVISTAS SECTION -->
+                <div class="revistas-section">
+                    <h2 class="section-title-premium">Our Scientific Journals</h2>
+
+                    <div class="revistas-grid">
+                        <!-- REMUNOM -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">REMUNOM</div>
+                                <div class="revista-subtitle">Multidisciplinary Journal of Northeast Minas</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2178-6925</strong>
+                                    <span>Diamond Category IBICT</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS A2 (2021-2024)</div>
+                                <p class="revista-description">
+                                    Journal with national and international reach, dedicated to publishing scientific articles, reviews, and critical essays 
+                                    across multiple fields of knowledge. Promotes original and high-impact research.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Areas of Focus:</strong>
+                                    <span>Multidisciplinary - All areas of knowledge</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="revista-link-premium">
+                                        Access Journal
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JIRRS -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">JIRRS</div>
+                                <div class="revista-subtitle">Journal International Review of Research Studies</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 3086-3600</strong>
+                                    <span>International Prestigious Journal</span>
+                                </div>
+                                <div class="qualis-badge-premium" style="background-color: #28a745; color: white;">INTERNATIONAL JOURNAL</div>
+                                <p class="revista-description">
+                                    Peer-reviewed, open-access journal published from the United Kingdom. Dedicated to disseminating high-quality scientific 
+                                    research across a broad spectrum of academic disciplines.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Areas of Focus:</strong>
+                                    <span>Sciences, Technology, Engineering, Social Sciences and Humanities</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="revista-link-premium">
+                                        Access Journal
+                                    </a>
+                                    <a href="http://linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RSV -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">RSV</div>
+                                <div class="revista-subtitle">Health Journal of the Valleys</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2674-8584</strong>
+                                    <span>Focus on Health and Interdisciplinary</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS B4</div>
+                                <p class="revista-description">
+                                    Scientific journal dedicated to interdisciplinary academic production, committed to excellence, social relevance, 
+                                    and methodological rigor. Publishes studies contextualized in Brazilian reality.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Areas of Focus:</strong>
+                                    <span>Health, Technology, Interdisciplinary</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="revista-link-premium">
+                                        Access Journal
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RJNM -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">RJNM</div>
+                                <div class="revista-subtitle">Legal Journal of Northeast Minas</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2675-4312</strong>
+                                    <span>Focus on Legal Sciences</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS B3 (2021-2024)</div>
+                                <p class="revista-description">
+                                    Journal dedicated to multidisciplinary research and studies. Aims to foster the exchange of information and experiences 
+                                    in legal careers, disseminating scientifically relevant studies.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Areas of Focus:</strong>
+                                    <span>Administration, Law, Accounting Sciences, Sociology, Tourism</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="revista-link-premium">
+                                        Access Journal
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDITORA SECTION -->
+                <div class="editora-premium">
+                    <h2 class="editora-title">UJN Publishing House - Ebook Publications</h2>
+                    <div class="editora-grid">
+                        <div class="editora-text">
+                            <p>
+                                <strong>UJN Publishing House</strong> is the ebook publishing division of Unified Journals Network, dedicated to publishing 
+                                high-impact academic works. With over 9 years of experience managing academic publishing houses, we offer rigorous methodology, 
+                                peer review, and absolute commitment to scientific integrity.
+                            </p>
+                            <p>
+                                Our publications span multiple areas of knowledge, promoting interdisciplinary dialogue and contributing to the strengthening 
+                                of science in Brazil and worldwide. We integrate modern services with emerging technologies, especially AI-based solutions to 
+                                enhance the visibility and impact of your works.
+                            </p>
+                            <div class="editora-links">
+                                <a href="https://editora.ujn.ojsbr.com/ujn" target="_blank" class="editora-link-premium">
+                                    Access Publishing House
+                                </a>
+                                <a href="https://www.linkedin.com/company/editora-unified-journals-network-ujn/?viewAsMember=true" target="_blank" class="editora-linkedin">
+                                    <span class="linkedin-icon">in</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="editora-services">
+                            <div class="editora-services-title">Advanced Technological Services</div>
+                            <div class="service-item-premium">AI-Powered Citation Enhancement System</div>
+                            <div class="service-item-premium">AI-Powered Plagiarism Detection System</div>
+                            <div class="service-item-premium">AI Writing Assessment and Evaluation</div>
+                            <div class="service-item-premium">AI-Powered LaTeX Standardization System</div>
+                            <div class="service-item-premium">AI-Powered PDF Conversion System</div>
+                            <div class="service-item-premium">Advanced Researcher Support</div>
+                            <div class="service-item-premium">Support for Institutions and Postgraduate Programs</div>
+                            <div class="service-item-premium">Scientific Visibility Amplification</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPANISH VERSION -->
+            <div class="language-content" id="content-es">
+                <!-- INTRO SECTION -->
+                <div class="intro-premium">
+                    <div class="intro-title">Bienvenido al Portal de Publicaciones de Excelencia</div>
+                    <p class="intro-text">
+                        <strong>Unified Journals Network (UJN)</strong> es una red editorial de prestigio dedicada a la publicación de revistas científicas 
+                        y obras académicas de alto impacto. Con más de 9 años de experiencia en la gestión de editoriales académicas, ofrecemos apoyo 
+                        avanzado a investigadores, instituciones y programas de posgrado.
+                    </p>
+                    <p class="intro-text">
+                        Nuestras publicaciones abarcan múltiples áreas del conocimiento, promoviendo el diálogo interdisciplinario y contribuyendo al 
+                        fortalecimiento de la ciencia en Brasil y en el mundo. Cada revista se somete a rigurosa metodología, revisión por pares y 
+                        compromiso absoluto con la integridad científica.
+                    </p>
+                </div>
+
+                <!-- REVISTAS SECTION -->
+                <div class="revistas-section">
+                    <h2 class="section-title-premium">Nuestras Revistas Científicas</h2>
+
+                    <div class="revistas-grid">
+                        <!-- REMUNOM -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">REMUNOM</div>
+                                <div class="revista-subtitle">Revista Multidisciplinaria del Nordeste de Minas</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2178-6925</strong>
+                                    <span>Categoría Diamante IBICT</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS A2 (2021-2024)</div>
+                                <p class="revista-description">
+                                    Revista con alcance nacional e internacional, dedicada a la publicación de artículos científicos, revisiones y ensayos 
+                                    críticos en múltiples áreas del conocimiento. Promueve investigación original y de alto impacto.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Enfoque:</strong>
+                                    <span>Multidisciplinaria - Todas las áreas del conocimiento</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="revista-link-premium">
+                                        Acceder a la Revista
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JIRRS -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">JIRRS</div>
+                                <div class="revista-subtitle">Journal International Review of Research Studies</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 3086-3600</strong>
+                                    <span>Revista Internacional de Prestigio</span>
+                                </div>
+                                <div class="qualis-badge-premium" style="background-color: #28a745; color: white;">REVISTA INTERNACIONAL</div>
+                                <p class="revista-description">
+                                    Revista revisada por pares, de acceso abierto, publicada desde el Reino Unido. Dedicada a la diseminación de investigación 
+                                    científica de alta calidad en un amplio espectro de disciplinas académicas.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Enfoque:</strong>
+                                    <span>Ciencias, Tecnología, Ingeniería, Ciencias Sociales y Humanidades</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="revista-link-premium">
+                                        Acceder a la Revista
+                                    </a>
+                                    <a href="http://linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RSV -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">RSV</div>
+                                <div class="revista-subtitle">Revista de Salud de los Valles</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2674-8584</strong>
+                                    <span>Enfoque en Salud e Interdisciplinaria</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS B4</div>
+                                <p class="revista-description">
+                                    Revista científica dedicada a la producción académica interdisciplinaria, comprometida con la excelencia, la relevancia 
+                                    social y el rigor metodológico. Publica estudios contextualizados en la realidad brasileña.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Enfoque:</strong>
+                                    <span>Salud, Tecnología, Interdisciplinaria</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="revista-link-premium">
+                                        Acceder a la Revista
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RJNM -->
+                        <div class="revista-card-premium">
+                            <div class="revista-header-premium">
+                                <div class="revista-name">RJNM</div>
+                                <div class="revista-subtitle">Revista Jurídica del Nordeste de Minas</div>
+                            </div>
+                            <div class="revista-body">
+                                <div class="revista-meta-info">
+                                    <strong>ISSN 2675-4312</strong>
+                                    <span>Enfoque en Ciencias Jurídicas</span>
+                                </div>
+                                <div class="qualis-badge-premium">QUALIS B3 (2021-2024)</div>
+                                <p class="revista-description">
+                                    Revista dedicada a la investigación y estudios multidisciplinarios. Tiene como objetivo fomentar el intercambio de 
+                                    información y experiencias en carreras jurídicas, difundiendo estudios científicamente relevantes.
+                                </p>
+                                <div class="revista-areas">
+                                    <strong>Áreas de Enfoque:</strong>
+                                    <span>Administración, Derecho, Ciencias Contables, Sociología, Turismo</span>
+                                </div>
+                                <div class="revista-links">
+                                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="revista-link-premium">
+                                        Acceder a la Revista
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="revista-linkedin">
+                                        <span class="linkedin-icon">in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDITORA SECTION -->
+                <div class="editora-premium">
+                    <h2 class="editora-title">Editorial UJN - Publicaciones en Ebook</h2>
+                    <div class="editora-grid">
+                        <div class="editora-text">
+                            <p>
+                                La <strong>Editorial UJN</strong> es la división de publicación de ebooks de Unified Journals Network, dedicada a la 
+                                publicación de obras académicas de alto impacto. Con más de 9 años de experiencia en la gestión de editoriales académicas, 
+                                ofrecemos rigurosa metodología, revisión por pares y compromiso absoluto con la integridad científica.
+                            </p>
+                            <p>
+                                Nuestras publicaciones abarcan múltiples áreas del conocimiento, promoviendo el diálogo interdisciplinario y contribuyendo 
+                                al fortalecimiento de la ciencia en Brasil y en el mundo. Integramos servicios modernos con tecnologías emergentes, 
+                                especialmente soluciones basadas en IA para potencializar la visibilidad e impacto de sus obras.
+                            </p>
+                            <div class="editora-links">
+                                <a href="https://editora.ujn.ojsbr.com/ujn" target="_blank" class="editora-link-premium">
+                                    Acceder a la Editorial
+                                </a>
+                                <a href="https://www.linkedin.com/company/editora-unified-journals-network-ujn/?viewAsMember=true" target="_blank" class="editora-linkedin">
+                                    <span class="linkedin-icon">in</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="editora-services">
+                            <div class="editora-services-title">Servicios Tecnológicos Avanzados</div>
+                            <div class="service-item-premium">Sistema de Mejora de Citación con IA</div>
+                            <div class="service-item-premium">Sistema de Detección de Plagio con IA</div>
+                            <div class="service-item-premium">Evaluación del Porcentaje de IA en Escritura</div>
+                            <div class="service-item-premium">Sistema de Estandarización LaTeX con IA</div>
+                            <div class="service-item-premium">Sistema de Conversión de PDF con IA</div>
+                            <div class="service-item-premium">Apoyo Avanzado a Investigadores</div>
+                            <div class="service-item-premium">Apoyo a Instituciones y Programas de Posgrado</div>
+                            <div class="service-item-premium">Amplificación de Visibilidad Científica</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-premium">
+        <div class="footer-title">UNIFIED JOURNALS NETWORK (UJN)</div>
+        <div class="footer-content">
+            <strong id="footer-admin">Escritório Administrativo – Brasil</strong><br>
+            Rua Dr. Breno Fernandes da Silva, nº 333, Sala 4<br>
+            Teófilo Otoni, Minas Gerais – Brasil<br><br>
+            <strong id="footer-intl">Escritório Internacional – Reino Unido</strong><br>
+            Charlotte Square Business Centre<br>
+            5 South Charlotte Street<br>
+            Edinburgh, EH2 4AN – Reino Unido
+        </div>
+        <div class="footer-contact">
+            <strong id="footer-contact-label">Contato:</strong><br>
+            <a href="tel:+5531988047104">(31) 98804-7104</a> | 
+            <a href="mailto:contato@ujn.ojsbr.com">contato@ujn.ojsbr.com</a>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Unified Journals Network. <span id="footer-rights">Todos os direitos reservados.</span><br>
+            <span id="footer-motto">Excelência • Integridade • Impacto Científico Global</span>
+        </div>
+    </div>
+
+    <script>
+        // Language translations
+        const translations = {
+            pt: {
+                'header-subtitle': 'Excelência em Publicações Científicas',
+                'header-tagline': 'Rigor • Integridade • Impacto Global',
+                'footer-admin': 'Escritório Administrativo – Brasil',
+                'footer-intl': 'Escritório Internacional – Reino Unido',
+                'footer-contact-label': 'Contato:',
+                'footer-rights': 'Todos os direitos reservados.',
+                'footer-motto': 'Excelência • Integridade • Impacto Científico Global'
+            },
+            en: {
+                'header-subtitle': 'Excellence in Scientific Publications',
+                'header-tagline': 'Rigor • Integrity • Global Impact',
+                'footer-admin': 'Administrative Office – Brazil',
+                'footer-intl': 'International Office – United Kingdom',
+                'footer-contact-label': 'Contact:',
+                'footer-rights': 'All rights reserved.',
+                'footer-motto': 'Excellence • Integrity • Global Scientific Impact'
+            },
+            es: {
+                'header-subtitle': 'Excelencia en Publicaciones Científicas',
+                'header-tagline': 'Rigor • Integridad • Impacto Global',
+                'footer-admin': 'Oficina Administrativa – Brasil',
+                'footer-intl': 'Oficina Internacional – Reino Unido',
+                'footer-contact-label': 'Contacto:',
+                'footer-rights': 'Todos los derechos reservados.',
+                'footer-motto': 'Excelencia • Integridad • Impacto Científico Global'
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Hide all content
+            document.getElementById('content-pt').classList.remove('active');
+            document.getElementById('content-en').classList.remove('active');
+            document.getElementById('content-es').classList.remove('active');
+
+            // Show selected language content
+            document.getElementById('content-' + lang).classList.add('active');
+
+            // Update language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update header and footer translations
+            if (translations[lang]) {
+                Object.keys(translations[lang]).forEach(key => {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+            }
+
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load preferred language on page load
+        window.addEventListener('load', function() {
+            const preferredLang = localStorage.getItem('preferredLanguage') || 'pt';
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach((btn, index) => {
+                if ((preferredLang === 'pt' && index === 0) ||
+                    (preferredLang === 'en' && index === 1) ||
+                    (preferredLang === 'es' && index === 2)) {
+                    btn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
