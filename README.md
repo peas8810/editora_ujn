@@ -9,24 +9,24 @@ URL do site
 URL do LinkedIn
 Descrição
 
-2. Artigos em Destaque (Linhas 125-215)
+3. Artigos em Destaque (Linhas 125-215)
 Título do artigo
 Autores
 Número de visualizações
 Área de pesquisa
 DOI
 
-3. Textos e Traduções (Linhas 220-350)
+4. Textos e Traduções (Linhas 220-350)
 Todos os textos em PT/EN/ES
 
-4. Estatísticas de Impacto (Linhas 54-122)
+5. Estatísticas de Impacto (Linhas 54-122)
 H-Index
 Citações
 Google Scholar H
 I10-Index
 
-5. Cores (Linhas 51, 70, 92, 113)
+6. Cores (Linhas 51, 70, 92, 113)
 Gradientes Tailwind CSS
 
-6. Áreas de Pesquisa (Linhas 10-38)
+7. Áreas de Pesquisa (Linhas 10-38)
 27 áreas Qualis A2 com traduções
