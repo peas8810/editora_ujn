@@ -349,26 +349,6 @@
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
 
-        .btn-linkedin {
-            background: var(--primary);
-            border: 3px solid #d4af37;
-        }
-
-        .btn-linkedin:hover {
-            background: var(--secondary);
-            color: var(--primary);
-        }
-
-        .btn-submit {
-            background: var(--primary);
-            border: 3px solid #d4af37;
-        }
-
-        .btn-submit:hover {
-            background: var(--secondary);
-            color: var(--primary);
-        }
-
         .articles-tabs {
             display: flex;
             gap: 10px;
@@ -589,12 +569,12 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">ECOSSISTEMA UJN - UNIFIED JOURNALS NETWORK</div>
-            <h1>Plataforma Integrada de Revistas Científicas</h1>
-            <p>Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.</p>
+            <div class="hero-badge" data-i18n="hero.badge">ECOSSISTEMA UJN - UNIFIED JOURNALS NETWORK</div>
+            <h1 data-i18n="hero.title">Plataforma Integrada de Revistas Científicas</h1>
+            <p data-i18n="hero.subtitle">Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Explorar Revistas</button>
-                <a href="https://seu-link-aqui.com" target="_blank" class="btn btn-secondary">Saiba Mais</a>
+                <button class="btn btn-primary" data-i18n="hero.exploreBtn" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Explorar Revistas</button>
+                <a href="https://seu-link-aqui.com" target="_blank" class="btn btn-secondary" data-i18n="hero.learnMoreBtn">Saiba Mais</a>
             </div>
         </div>
     </section>
@@ -602,37 +582,37 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">QUALIS A2 - ÍNDICE H13</div>
-                <h2>Revista REMUNOM - Seção Premium</h2>
+                <div class="section-badge" data-i18n="premium.badge">QUALIS A2 - ÍNDICE H13</div>
+                <h2 data-i18n="premium.title">Revista REMUNOM - Seção Premium</h2>
             </div>
 
             <div class="journal-card">
                 <h3>REMUNOM</h3>
-                <p>Revista Multidisciplinar - Qualis A2</p>
+                <p data-i18n="premium.desc">Revista Multidisciplinar - Qualis A2</p>
 
                 <div class="stats-grid">
                     <div class="stat-box">
                         <div class="stat-value">11</div>
-                        <div class="stat-label">H-Index</div>
+                        <div class="stat-label" data-i18n="stats.hindex">H-Index</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-value">2127</div>
-                        <div class="stat-label">Citações</div>
+                        <div class="stat-label" data-i18n="stats.citations">Citações</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-value">18</div>
-                        <div class="stat-label">Google H</div>
+                        <div class="stat-label" data-i18n="stats.googleh">Google H</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-value">41</div>
-                        <div class="stat-label">I10-Index</div>
+                        <div class="stat-label" data-i18n="stats.i10">I10-Index</div>
                     </div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action">Acessar REMUNOM</a>
-                    <a href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
-                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action btn-submit">Publicar na REMUNOM</a>
+                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action" data-i18n="buttons.accessRemunom">Acessar REMUNOM</a>
+                    <a href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="btn-action" data-i18n="buttons.followLinkedin">Seguir no LinkedIn</a>
+                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action" data-i18n="buttons.publishRemunom">Publicar na REMUNOM</a>
                 </div>
             </div>
         </div>
@@ -641,51 +621,51 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">QUALIS B3 E B4 - ÍNDICE H5</div>
-                <h2>Revistas Máster</h2>
+                <div class="section-badge" data-i18n="master.badge">QUALIS B3 E B4 - ÍNDICE H5</div>
+                <h2 data-i18n="master.title">Revistas Máster</h2>
             </div>
 
             <div class="journal-card">
                 <h3>RSV</h3>
-                <p>ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)</p>
+                <p data-i18n="rsv.desc">ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)</p>
 
                 <div class="stats-grid">
                     <div class="stat-box">
                         <div class="stat-value">6</div>
-                        <div class="stat-label">H-Index</div>
+                        <div class="stat-label" data-i18n="stats.hindex">H-Index</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-value">363</div>
-                        <div class="stat-label">Citações</div>
+                        <div class="stat-label" data-i18n="stats.citations">Citações</div>
                     </div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action">Acessar RSV</a>
-                    <a href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
-                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action btn-submit">Publicar na RSV</a>
+                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action" data-i18n="buttons.accessRsv">Acessar RSV</a>
+                    <a href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="btn-action" data-i18n="buttons.followLinkedin">Seguir no LinkedIn</a>
+                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action" data-i18n="buttons.publishRsv">Publicar na RSV</a>
                 </div>
             </div>
 
             <div class="journal-card">
                 <h3>RJNM</h3>
-                <p>ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)</p>
+                <p data-i18n="rjnm.desc">ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)</p>
 
                 <div class="stats-grid">
                     <div class="stat-box">
                         <div class="stat-value">4</div>
-                        <div class="stat-label">H-Index</div>
+                        <div class="stat-label" data-i18n="stats.hindex">H-Index</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-value">114</div>
-                        <div class="stat-label">Citações</div>
+                        <div class="stat-label" data-i18n="stats.citations">Citações</div>
                     </div>
                 </div>
 
                 <div class="button-group">
-                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action">Acessar RJNM</a>
-                    <a href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
-                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action btn-submit">Publicar na RJNM</a>
+                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action" data-i18n="buttons.accessRjnm">Acessar RJNM</a>
+                    <a href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="btn-action" data-i18n="buttons.followLinkedin">Seguir no LinkedIn</a>
+                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action" data-i18n="buttons.publishRjnm">Publicar na RJNM</a>
                 </div>
             </div>
         </div>
@@ -694,18 +674,18 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">TÉCNICA</div>
-                <h2>JIRRS - Revista Técnica Internacional</h2>
+                <div class="section-badge" data-i18n="technical.badge">TÉCNICA</div>
+                <h2 data-i18n="technical.title">JIRRS - Revista Técnica Internacional</h2>
             </div>
 
             <div class="journal-card">
                 <h3>JIRRS</h3>
-                <p>Journal of International Research and Reviews - Reino Unido</p>
+                <p data-i18n="technical.desc">Journal of International Research and Reviews - Reino Unido</p>
 
                 <div class="button-group">
-                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action">Acessar JIRRS</a>
-                    <a href="https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
-                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action btn-submit">Publicar na JIRRS</a>
+                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action" data-i18n="buttons.accessJirrs">Acessar JIRRS</a>
+                    <a href="https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="btn-action" data-i18n="buttons.followLinkedin">Seguir no LinkedIn</a>
+                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action" data-i18n="buttons.publishJirrs">Publicar na JIRRS</a>
                 </div>
             </div>
         </div>
@@ -714,8 +694,8 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Artigos Recentes</h2>
-                <p class="section-desc">Confira os artigos mais recentes publicados nas nossas revistas.</p>
+                <h2 data-i18n="articles.title">Artigos Recentes</h2>
+                <p class="section-desc" data-i18n="articles.desc">Confira os artigos mais recentes publicados nas nossas revistas.</p>
             </div>
 
             <div class="articles-tabs">
@@ -730,8 +710,8 @@
                     <h4>IMPACTO DO MOUNJARO NA PERDA DE PESO E QUALIDADE DE VIDA</h4>
                     <p><strong>Diversos Autores</strong></p>
                     <div class="article-footer">
-                        <span class="views-count">939 visualizações</span>
-                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/1" target="_blank" class="article-link">Ler</a>
+                        <span class="views-count">939 <span data-i18n="articles.views">visualizações</span></span>
+                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
@@ -739,8 +719,8 @@
                     <h4>ANÁLISE DE POLÍTICAS PÚBLICAS NO BRASIL</h4>
                     <p><strong>João Silva, Maria Santos</strong></p>
                     <div class="article-footer">
-                        <span class="views-count">778 visualizações</span>
-                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/2" target="_blank" class="article-link">Ler</a>
+                        <span class="views-count">778 <span data-i18n="articles.views">visualizações</span></span>
+                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/2" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
@@ -748,8 +728,8 @@
                     <h4>ARTIGO RSV 1</h4>
                     <p><strong>Autores RSV</strong></p>
                     <div class="article-footer">
-                        <span class="views-count">150 visualizações</span>
-                        <a href="https://rsv.ojsbr.com/rsv/article/view/1" target="_blank" class="article-link">Ler</a>
+                        <span class="views-count">150 <span data-i18n="articles.views">visualizações</span></span>
+                        <a href="https://rsv.ojsbr.com/rsv/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
@@ -757,8 +737,8 @@
                     <h4>DIREITO CONSTITUCIONAL E POLÍTICAS PÚBLICAS</h4>
                     <p><strong>Pedro Oliveira</strong></p>
                     <div class="article-footer">
-                        <span class="views-count">200 visualizações</span>
-                        <a href="https://jrnm.ojsbr.com/juridica/article/view/1" target="_blank" class="article-link">Ler</a>
+                        <span class="views-count">200 <span data-i18n="articles.views">visualizações</span></span>
+                        <a href="https://jrnm.ojsbr.com/juridica/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
@@ -766,8 +746,8 @@
                     <h4>Artigo JIRRS 1</h4>
                     <p><strong>Autores</strong></p>
                     <div class="article-footer">
-                        <span class="views-count">100 visualizações</span>
-                        <a href="https://jirrs.org.uk/jirrs/article/view/1" target="_blank" class="article-link">Ler</a>
+                        <span class="views-count">100 <span data-i18n="articles.views">visualizações</span></span>
+                        <a href="https://jirrs.org.uk/jirrs/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
             </div>
@@ -780,13 +760,170 @@
 
     <footer>
         <div class="container">
-            <p id="footerText">© 2024 Unified Journals Network. Todos os direitos reservados.</p>
-            <p id="footerLinks"><a href="#">Sobre</a> | <a href="#">Contato</a> | <a href="#">Política de Privacidade</a></p>
+            <p id="footerText" data-i18n="footer.copyright">© 2024 Unified Journals Network. Todos os direitos reservados.</p>
+            <p id="footerLinks"><a href="#" data-i18n="footer.about">Sobre</a> | <a href="#" data-i18n="footer.contact">Contato</a> | <a href="#" data-i18n="footer.privacy">Política de Privacidade</a></p>
         </div>
     </footer>
     </main>
 
     <script>
+        const translations = {
+            pt: {
+                'hero.badge': 'ECOSSISTEMA UJN - UNIFIED JOURNALS NETWORK',
+                'hero.title': 'Plataforma Integrada de Revistas Científicas',
+                'hero.subtitle': 'Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.',
+                'hero.exploreBtn': 'Explorar Revistas',
+                'hero.learnMoreBtn': 'Saiba Mais',
+                
+                'premium.badge': 'QUALIS A2 - ÍNDICE H13',
+                'premium.title': 'Revista REMUNOM - Seção Premium',
+                'premium.desc': 'Revista Multidisciplinar - Qualis A2',
+                
+                'master.badge': 'QUALIS B3 E B4 - ÍNDICE H5',
+                'master.title': 'Revistas Máster',
+                
+                'rsv.desc': 'ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)',
+                'rjnm.desc': 'ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)',
+                
+                'technical.badge': 'TÉCNICA',
+                'technical.title': 'JIRRS - Revista Técnica Internacional',
+                'technical.desc': 'Journal of International Research and Reviews - Reino Unido',
+                
+                'stats.hindex': 'H-Index',
+                'stats.citations': 'Citações',
+                'stats.googleh': 'Google H',
+                'stats.i10': 'I10-Index',
+                
+                'buttons.accessRemunom': 'Acessar REMUNOM',
+                'buttons.accessRsv': 'Acessar RSV',
+                'buttons.accessRjnm': 'Acessar RJNM',
+                'buttons.accessJirrs': 'Acessar JIRRS',
+                'buttons.followLinkedin': 'Seguir no LinkedIn',
+                'buttons.publishRemunom': 'Publicar na REMUNOM',
+                'buttons.publishRsv': 'Publicar na RSV',
+                'buttons.publishRjnm': 'Publicar na RJNM',
+                'buttons.publishJirrs': 'Publicar na JIRRS',
+                
+                'articles.title': 'Artigos Recentes',
+                'articles.desc': 'Confira os artigos mais recentes publicados nas nossas revistas.',
+                'articles.views': 'visualizações',
+                'articles.read': 'Ler',
+                
+                'footer.copyright': '© 2024 Unified Journals Network. Todos os direitos reservados.',
+                'footer.about': 'Sobre',
+                'footer.contact': 'Contato',
+                'footer.privacy': 'Política de Privacidade'
+            },
+            en: {
+                'hero.badge': 'UJN ECOSYSTEM - UNIFIED JOURNALS NETWORK',
+                'hero.title': 'Integrated Scientific Journals Platform',
+                'hero.subtitle': 'Access Brazil\'s leading scientific journals with editorial excellence, methodological rigor and national and international reach.',
+                'hero.exploreBtn': 'Explore Journals',
+                'hero.learnMoreBtn': 'Learn More',
+                
+                'premium.badge': 'QUALIS A2 - H-INDEX 13',
+                'premium.title': 'REMUNOM Journal - Premium Section',
+                'premium.desc': 'Multidisciplinary Journal - Qualis A2',
+                
+                'master.badge': 'QUALIS B3 AND B4 - H-INDEX 5',
+                'master.title': 'Master Journals',
+                
+                'rsv.desc': 'ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)',
+                'rjnm.desc': 'ISSN 2675-4312 | Legal Journal of Northeastern Minas - CAPES Qualis B3 (2021 - 2024)',
+                
+                'technical.badge': 'TECHNICAL',
+                'technical.title': 'JIRRS - International Technical Journal',
+                'technical.desc': 'Journal of International Research and Reviews - United Kingdom',
+                
+                'stats.hindex': 'H-Index',
+                'stats.citations': 'Citations',
+                'stats.googleh': 'Google H',
+                'stats.i10': 'I10-Index',
+                
+                'buttons.accessRemunom': 'Access REMUNOM',
+                'buttons.accessRsv': 'Access RSV',
+                'buttons.accessRjnm': 'Access RJNM',
+                'buttons.accessJirrs': 'Access JIRRS',
+                'buttons.followLinkedin': 'Follow on LinkedIn',
+                'buttons.publishRemunom': 'Publish in REMUNOM',
+                'buttons.publishRsv': 'Publish in RSV',
+                'buttons.publishRjnm': 'Publish in RJNM',
+                'buttons.publishJirrs': 'Publish in JIRRS',
+                
+                'articles.title': 'Recent Articles',
+                'articles.desc': 'Check out the latest articles published in our journals.',
+                'articles.views': 'views',
+                'articles.read': 'Read',
+                
+                'footer.copyright': '© 2024 Unified Journals Network. All rights reserved.',
+                'footer.about': 'About',
+                'footer.contact': 'Contact',
+                'footer.privacy': 'Privacy Policy'
+            },
+            es: {
+                'hero.badge': 'ECOSISTEMA UJN - RED DE REVISTAS UNIFICADAS',
+                'hero.title': 'Plataforma Integrada de Revistas Científicas',
+                'hero.subtitle': 'Acceda a las principales revistas científicas de Brasil con excelencia editorial, rigor metodológico y alcance nacional e internacional.',
+                'hero.exploreBtn': 'Explorar Revistas',
+                'hero.learnMoreBtn': 'Más Información',
+                
+                'premium.badge': 'QUALIS A2 - ÍNDICE H13',
+                'premium.title': 'Revista REMUNOM - Sección Premium',
+                'premium.desc': 'Revista Multidisciplinaria - Qualis A2',
+                
+                'master.badge': 'QUALIS B3 Y B4 - ÍNDICE H5',
+                'master.title': 'Revistas Máster',
+                
+                'rsv.desc': 'ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)',
+                'rjnm.desc': 'ISSN 2675-4312 | Revista Jurídica del Nordeste Minero - CAPES Qualis B3 (2021 - 2024)',
+                
+                'technical.badge': 'TÉCNICA',
+                'technical.title': 'JIRRS - Revista Técnica Internacional',
+                'technical.desc': 'Journal of International Research and Reviews - Reino Unido',
+                
+                'stats.hindex': 'Índice H',
+                'stats.citations': 'Citas',
+                'stats.googleh': 'Google H',
+                'stats.i10': 'Índice I10',
+                
+                'buttons.accessRemunom': 'Acceder a REMUNOM',
+                'buttons.accessRsv': 'Acceder a RSV',
+                'buttons.accessRjnm': 'Acceder a RJNM',
+                'buttons.accessJirrs': 'Acceder a JIRRS',
+                'buttons.followLinkedin': 'Seguir en LinkedIn',
+                'buttons.publishRemunom': 'Publicar en REMUNOM',
+                'buttons.publishRsv': 'Publicar en RSV',
+                'buttons.publishRjnm': 'Publicar en RJNM',
+                'buttons.publishJirrs': 'Publicar en JIRRS',
+                
+                'articles.title': 'Artículos Recientes',
+                'articles.desc': 'Consulte los últimos artículos publicados en nuestras revistas.',
+                'articles.views': 'vistas',
+                'articles.read': 'Leer',
+                
+                'footer.copyright': '© 2024 Red de Revistas Unificadas. Todos los derechos reservados.',
+                'footer.about': 'Acerca de',
+                'footer.contact': 'Contacto',
+                'footer.privacy': 'Política de Privacidad'
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        function changeLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            updateLanguage(lang);
+            localStorage.setItem('language', lang);
+        }
+
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const btn = event.target.closest('.theme-toggle');
@@ -825,42 +962,23 @@
             }
         });
 
+        // Restaurar tema salvo
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-mode');
             document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
         }
 
-        function changeLanguage(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            localStorage.setItem('language', lang);
-            
-            const translations = {
-                pt: {
-                    footerText: '© 2024 Unified Journals Network. Todos os direitos reservados.',
-                    about: 'Sobre',
-                    contact: 'Contato',
-                    privacy: 'Política de Privacidade'
-                },
-                en: {
-                    footerText: '© 2024 Unified Journals Network. All rights reserved.',
-                    about: 'About',
-                    contact: 'Contact',
-                    privacy: 'Privacy Policy'
-                },
-                es: {
-                    footerText: '© 2024 Red de Revistas Unificadas. Todos los derechos reservados.',
-                    about: 'Acerca de',
-                    contact: 'Contacto',
-                    privacy: 'Política de Privacidad'
+        // Restaurar idioma salvo
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language') || 'pt';
+            if (savedLang !== 'pt') {
+                const langBtn = document.querySelector(`.lang-btn[onclick="changeLanguage('${savedLang}')"]:not(.active)`);
+                if (langBtn) {
+                    langBtn.click();
                 }
-            };
-            
-            const t = translations[lang];
-            document.getElementById('footerText').textContent = t.footerText;
-            document.getElementById('footerLinks').innerHTML = `<a href="#">${t.about}</a> | <a href="#">${t.contact}</a> | <a href="#">${t.privacy}</a>`;
-        }
+            }
+        });
     </script>
 </body>
 </html>
