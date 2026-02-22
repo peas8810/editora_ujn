@@ -9,21 +9,21 @@
       "subtitle": "Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.",
       "exploreBtn": "Explorar Revistas",
       "learnMoreBtn": "Saiba Mais",
-      "learnMoreLink": "https://ujn.ojsbr.com/"
+      "learnMoreLink": "https://seu-link-aqui.com"
     },
     "en": {
       "title": "Integrated Scientific Journals Platform",
       "subtitle": "Access Brazil's leading scientific journals with editorial excellence, methodological rigor and national and international reach.",
       "exploreBtn": "Explore Journals",
       "learnMoreBtn": "Learn More",
-      "learnMoreLink": "https://ujn.ojsbr.com/"
+      "learnMoreLink": "https://your-link-here.com"
     },
     "es": {
       "title": "Plataforma Integrada de Revistas Científicas",
       "subtitle": "Acceda a las principales revistas científicas de Brasil con excelencia editorial, rigor metodológico y alcance nacional e internacional.",
       "exploreBtn": "Explorar Revistas",
       "learnMoreBtn": "Más Información",
-      "learnMoreLink": "https://ujn.ojsbr.com/"
+      "learnMoreLink": "https://tu-enlace-aqui.com"
     }
   },
   "premium": {
@@ -32,30 +32,93 @@
       "title": "Revista REMUNOM - Seção Premium",
       "description": "Revista Multidisciplinar - Qualis A2",
       "accessBtn": "Acessar REMUNOM",
-      "linkedinBtn": "Seguir no LinkedIn"
+      "linkedinBtn": "Seguir no LinkedIn",
+      "submitBtn": "Publicar na REMUNOM"
     },
     "en": {
       "title": "REMUNOM Journal - Premium Section",
       "description": "Multidisciplinary Journal - Qualis A2",
       "accessBtn": "Access REMUNOM",
-      "linkedinBtn": "Follow on LinkedIn"
+      "linkedinBtn": "Follow on LinkedIn",
+      "submitBtn": "Publish in REMUNOM"
     },
     "es": {
       "title": "Revista REMUNOM - Sección Premium",
       "description": "Revista Multidisciplinaria - Qualis A2",
       "accessBtn": "Acceder a REMUNOM",
-      "linkedinBtn": "Seguir en LinkedIn"
+      "linkedinBtn": "Seguir en LinkedIn",
+      "submitBtn": "Publicar en REMUNOM"
     },
     "links": {
       "website": "https://remunom.ojsbr.com/multidisciplinar/index",
-      "linkedin": "https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true"
+      "linkedin": "https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true",
+      "submit": "https://remunom.ojsbr.com/multidisciplinar/index"
     },
     "stats": {
       "hIndex": 11,
       "citations": 2127,
       "googleH": 18,
       "i10": 41
-    }
+    },
+    "articles": [
+      {
+        "id": 1,
+        "pt": {
+          "title": "IMPACTO DO MOUNJARO NA PERDA DE PESO E QUALIDADE DE VIDA",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/1"
+        },
+        "en": {
+          "title": "IMPACT OF MOUNJARO ON WEIGHT LOSS AND QUALITY OF LIFE",
+          "authors": "Various Authors",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/1"
+        },
+        "es": {
+          "title": "IMPACTO DE MOUNJARO EN LA PÉRDIDA DE PESO Y CALIDAD DE VIDA",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/1"
+        },
+        "views": 939
+      },
+      {
+        "id": 2,
+        "pt": {
+          "title": "MANEJO E BEM-ESTAR ANIMAL NA BOVINOCULTURA DE CORTE NO BRASIL: UMA REVISÃO DE LITERATURA",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
+        },
+        "en": {
+          "title": "MANAGEMENT AND ANIMAL WELFARE IN BEEF CATTLE IN BRAZIL: A LITERATURE REVIEW",
+          "authors": "Various Authors",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
+        },
+        "es": {
+          "title": "MANEJO Y BIENESTAR ANIMAL EN GANADERÍA DE CARNE EN BRASIL: UNA REVISIÓN DE LITERATURA",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
+        },
+        "views": 778
+      },
+      {
+        "id": 3,
+        "pt": {
+          "title": "TRIAGEM NEONATAL: A IMPORTÂNCIA DO DIAGNÓSTICO PRECOCE PARA A SAÚDE DO RECÉM-NASCIDO",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/3"
+        },
+        "en": {
+          "title": "NEONATAL SCREENING: THE IMPORTANCE OF EARLY DIAGNOSIS FOR NEWBORN HEALTH",
+          "authors": "Various Authors",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/3"
+        },
+        "es": {
+          "title": "CRIBADO NEONATAL: LA IMPORTANCIA DEL DIAGNÓSTICO PRECOZ PARA LA SALUD DEL RECIÉN NACIDO",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/3"
+        },
+        "views": 173
+      }
+    ]
   },
   "master": {
     "badge": "QUALIS B3 E B4 - ÍNDICE H5",
@@ -75,26 +138,70 @@
         "pt": {
           "description": "ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)",
           "accessBtn": "Acessar RSV",
-          "linkedinBtn": "Seguir no LinkedIn"
+          "linkedinBtn": "Seguir no LinkedIn",
+          "submitBtn": "Publicar na RSV"
         },
         "en": {
           "description": "ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)",
           "accessBtn": "Access RSV",
-          "linkedinBtn": "Follow on LinkedIn"
+          "linkedinBtn": "Follow on LinkedIn",
+          "submitBtn": "Publish in RSV"
         },
         "es": {
           "description": "ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)",
           "accessBtn": "Acceder a RSV",
-          "linkedinBtn": "Seguir en LinkedIn"
+          "linkedinBtn": "Seguir en LinkedIn",
+          "submitBtn": "Publicar en RSV"
         },
         "links": {
           "website": "https://rsv.ojsbr.com/rsv/index",
-          "linkedin": "https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true"
+          "linkedin": "https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true",
+          "submit": "https://rsv.ojsbr.com/rsv/index"
         },
         "stats": {
           "hIndex": 6,
           "citations": 363
-        }
+        },
+        "articles": [
+          {
+            "id": 1,
+            "pt": {
+              "title": "CONCEPÇÕES DOCENTES, PRÁTICAS PEDAGÓGICAS E DESENVOLVIMENTO DO PENSAMENTO ALGÉBRICO",
+              "authors": "Luiz Fernando Ridolfi et al.",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/1"
+            },
+            "en": {
+              "title": "TEACHING CONCEPTIONS, PEDAGOGICAL PRACTICES AND DEVELOPMENT OF ALGEBRAIC THINKING",
+              "authors": "Luiz Fernando Ridolfi et al.",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/1"
+            },
+            "es": {
+              "title": "CONCEPCIONES DOCENTES, PRÁCTICAS PEDAGÓGICAS Y DESARROLLO DEL PENSAMIENTO ALGEBRAICO",
+              "authors": "Luiz Fernando Ridolfi et al.",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/1"
+            },
+            "views": 348
+          },
+          {
+            "id": 2,
+            "pt": {
+              "title": "TRIAGEM NEONATAL: A IMPORTÂNCIA DO DIAGNÓSTICO PRECOCE PARA A SAÚDE DO RECÉM-NASCIDO",
+              "authors": "Diversos Autores",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/2"
+            },
+            "en": {
+              "title": "NEONATAL SCREENING: THE IMPORTANCE OF EARLY DIAGNOSIS FOR NEWBORN HEALTH",
+              "authors": "Various Authors",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/2"
+            },
+            "es": {
+              "title": "CRIBADO NEONATAL: LA IMPORTANCIA DEL DIAGNÓSTICO PRECOZ PARA LA SALUD DEL RECIÉN NACIDO",
+              "authors": "Diversos Autores",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/2"
+            },
+            "views": 173
+          }
+        ]
       },
       {
         "id": "rjnm",
@@ -102,26 +209,70 @@
         "pt": {
           "description": "ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)",
           "accessBtn": "Acessar RJNM",
-          "linkedinBtn": "Seguir no LinkedIn"
+          "linkedinBtn": "Seguir no LinkedIn",
+          "submitBtn": "Publicar na RJNM"
         },
         "en": {
           "description": "ISSN 2675-4312 | Legal Journal of Northeastern Minas - CAPES Qualis B3 (2021 - 2024)",
           "accessBtn": "Access RJNM",
-          "linkedinBtn": "Follow on LinkedIn"
+          "linkedinBtn": "Follow on LinkedIn",
+          "submitBtn": "Publish in RJNM"
         },
         "es": {
           "description": "ISSN 2675-4312 | Revista Jurídica del Nordeste Minero - CAPES Qualis B3 (2021 - 2024)",
           "accessBtn": "Acceder a RJNM",
-          "linkedinBtn": "Seguir en LinkedIn"
+          "linkedinBtn": "Seguir en LinkedIn",
+          "submitBtn": "Publicar en RJNM"
         },
         "links": {
           "website": "https://jrnm.ojsbr.com/juridica/index",
-          "linkedin": "https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true"
+          "linkedin": "https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true",
+          "submit": "https://jrnm.ojsbr.com/juridica/index"
         },
         "stats": {
           "hIndex": 4,
           "citations": 114
-        }
+        },
+        "articles": [
+          {
+            "id": 1,
+            "pt": {
+              "title": "BIG TECHS, EXTREMA DIREITA E DEMOCRACIA NA AMÉRICA DO SUL",
+              "authors": "Paulo Salgado Zenha Carneiro et al.",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
+            },
+            "en": {
+              "title": "BIG TECHS, FAR RIGHT AND DEMOCRACY IN SOUTH AMERICA",
+              "authors": "Paulo Salgado Zenha Carneiro et al.",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
+            },
+            "es": {
+              "title": "BIG TECHS, EXTREMA DERECHA Y DEMOCRACIA EN AMÉRICA DEL SUR",
+              "authors": "Paulo Salgado Zenha Carneiro et al.",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
+            },
+            "views": 80
+          },
+          {
+            "id": 2,
+            "pt": {
+              "title": "O PAGAMENTO DE PENSÃO ALIMENTÍCIA ENTRE EX-CÔNJUGES",
+              "authors": "Diversos Autores",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/2"
+            },
+            "en": {
+              "title": "ALIMONY PAYMENT BETWEEN EX-SPOUSES",
+              "authors": "Various Authors",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/2"
+            },
+            "es": {
+              "title": "PAGO DE PENSIÓN ALIMENTICIA ENTRE EX-CÓNYUGES",
+              "authors": "Diversos Autores",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/2"
+            },
+            "views": 62
+          }
+        ]
       }
     ]
   },
@@ -131,23 +282,84 @@
       "title": "JIRRS - Revista Técnica Internacional",
       "description": "Journal of International Research and Reviews - Reino Unido",
       "accessBtn": "Acessar JIRRS",
-      "linkedinBtn": "Seguir no LinkedIn"
+      "linkedinBtn": "Seguir no LinkedIn",
+      "submitBtn": "Publicar na JIRRS"
     },
     "en": {
       "title": "JIRRS - International Technical Journal",
       "description": "Journal of International Research and Reviews - United Kingdom",
       "accessBtn": "Access JIRRS",
-      "linkedinBtn": "Follow on LinkedIn"
+      "linkedinBtn": "Follow on LinkedIn",
+      "submitBtn": "Publish in JIRRS"
     },
     "es": {
       "title": "JIRRS - Revista Técnica Internacional",
       "description": "Journal of International Research and Reviews - Reino Unido",
       "accessBtn": "Acceder a JIRRS",
-      "linkedinBtn": "Seguir en LinkedIn"
+      "linkedinBtn": "Seguir en LinkedIn",
+      "submitBtn": "Publicar en JIRRS"
     },
     "links": {
       "website": "https://jirrs.org.uk/jirrs/index",
-      "linkedin": "https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true"
+      "linkedin": "https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true",
+      "submit": "https://jirrs.org.uk/jirrs/index"
+    },
+    "articles": [
+      {
+        "id": 1,
+        "pt": {
+          "title": "Enhanced Visible Photoluminescence in Niobium-Doped CaCu₃Ti₄O₁₂ Perovskite Synthesized by a Soft Chemical Route",
+          "authors": "International Authors",
+          "link": "https://jirrs.org.uk/jirrs/article/view/1"
+        },
+        "en": {
+          "title": "Enhanced Visible Photoluminescence in Niobium-Doped CaCu₃Ti₄O₁₂ Perovskite Synthesized by a Soft Chemical Route",
+          "authors": "International Authors",
+          "link": "https://jirrs.org.uk/jirrs/article/view/1"
+        },
+        "es": {
+          "title": "Fotoluminiscencia Visible Mejorada en Perovskita CaCu₃Ti₄O₁₂ Dopada con Niobio Sintetizada por Ruta Química Suave",
+          "authors": "Autores Internacionales",
+          "link": "https://jirrs.org.uk/jirrs/article/view/1"
+        },
+        "views": 14
+      },
+      {
+        "id": 2,
+        "pt": {
+          "title": "A Comprehensive Review on the Comparison Between Plasterboard (Drywall) Systems and Conventional Brick Masonry in Building Construction",
+          "authors": "International Authors",
+          "link": "https://jirrs.org.uk/jirrs/article/view/2"
+        },
+        "en": {
+          "title": "A Comprehensive Review on the Comparison Between Plasterboard (Drywall) Systems and Conventional Brick Masonry in Building Construction",
+          "authors": "International Authors",
+          "link": "https://jirrs.org.uk/jirrs/article/view/2"
+        },
+        "es": {
+          "title": "Una Revisión Completa sobre la Comparación entre Sistemas de Placas de Yeso (Drywall) y Mampostería de Ladrillo Convencional en la Construcción",
+          "authors": "Autores Internacionales",
+          "link": "https://jirrs.org.uk/jirrs/article/view/2"
+        },
+        "views": 13
+      }
+    ]
+  },
+  "articles": {
+    "pt": {
+      "title": "Artigos Recentes",
+      "description": "Confira os artigos mais recentes publicados nas nossas revistas.",
+      "views": "visualizações"
+    },
+    "en": {
+      "title": "Recent Articles",
+      "description": "Check out the most recent articles published in our journals.",
+      "views": "views"
+    },
+    "es": {
+      "title": "Artículos Recientes",
+      "description": "Consulte los artículos más recientes publicados en nuestras revistas.",
+      "views": "vistas"
     }
   },
   "footer": {
