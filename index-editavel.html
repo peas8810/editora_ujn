@@ -219,6 +219,110 @@
             color: white;
         }
 
+        .btn-submit {
+            background: #28a745;
+        }
+
+        .btn-submit:hover {
+            background: #218838;
+            color: white;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            background: #f8f9fa;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: #0f3460;
+            border-bottom-color: #d4af37;
+        }
+
+        .tab-btn:hover {
+            color: #0f3460;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .article-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .article-card h4 {
+            color: #0f3460;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .article-views {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .views-count {
+            color: #0f3460;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .article-link {
+            background: #0f3460;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .article-link:hover {
+            background: #d4af37;
+            color: #0f3460;
+        }
+
         /* Footer */
         footer {
             background: #0f3460;
@@ -253,6 +357,14 @@
             .btn {
                 width: 100%;
             }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -271,7 +383,7 @@
             <h1 id="heroTitle">Plataforma Integrada de Revistas Científicas</h1>
             <p id="heroSubtitle">Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.</p>
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">
+                <button class="btn btn-primary" onclick="document.querySelector('.articles-section').scrollIntoView({behavior: 'smooth'})">
                     <span id="exploreBtnText">Explorar Revistas</span>
                 </button>
                 <a id="learnMoreBtn" href="https://seu-link-aqui.com" target="_blank" class="btn btn-secondary">
@@ -317,6 +429,9 @@
                     <a id="remunom-linkedin" href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">
                         <span id="remunom-linkedinBtn">Seguir no LinkedIn</span>
                     </a>
+                    <a id="remunom-submit" href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action btn-submit">
+                        <span id="remunom-submitBtn">Publicar na REMUNOM</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -351,6 +466,9 @@
                     <a id="rsv-linkedin" href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">
                         <span id="rsv-linkedinBtn">Seguir no LinkedIn</span>
                     </a>
+                    <a id="rsv-submit" href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action btn-submit">
+                        <span id="rsv-submitBtn">Publicar na RSV</span>
+                    </a>
                 </div>
             </div>
 
@@ -377,6 +495,9 @@
                     <a id="rjnm-linkedin" href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">
                         <span id="rjnm-linkedinBtn">Seguir no LinkedIn</span>
                     </a>
+                    <a id="rjnm-submit" href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action btn-submit">
+                        <span id="rjnm-submitBtn">Publicar na RJNM</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -399,8 +520,22 @@
                     <a id="jirrs-linkedin" href="https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">
                         <span id="jirrs-linkedinBtn">Seguir no LinkedIn</span>
                     </a>
+                    <a id="jirrs-submit" href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action btn-submit">
+                        <span id="jirrs-submitBtn">Publicar na JIRRS</span>
+                    </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section articles-section">
+        <div class="container">
+            <h2 id="articlesTitle">Artigos Recentes</h2>
+            <p id="articlesDesc" style="text-align: center; color: #666; margin-bottom: 30px;">Confira os artigos mais recentes publicados nas nossas revistas.</p>
+            
+            <div class="tabs" id="articlesTabs"></div>
+            <div class="articles-grid" id="articlesGrid"></div>
         </div>
     </section>
 
@@ -415,6 +550,7 @@
     <script>
         let currentLanguage = 'pt';
         let config = null;
+        let currentArticleTab = 'remunom';
 
         // Carregar config.json
         async function loadConfig() {
@@ -422,6 +558,8 @@
                 const response = await fetch('./config.json');
                 config = await response.json();
                 updatePageContent();
+                renderArticlesTabs();
+                renderArticles(currentArticleTab);
             } catch (error) {
                 console.error('Erro ao carregar config.json:', error);
             }
@@ -437,6 +575,7 @@
             
             // Atualizar conteúdo
             updatePageContent();
+            renderArticles(currentArticleTab);
         }
 
         // Atualizar conteúdo da página
@@ -459,6 +598,10 @@
             document.getElementById('premiumDesc').textContent = config.premium[lang].description;
             document.getElementById('remunom-accessBtn').textContent = config.premium[lang].accessBtn;
             document.getElementById('remunom-linkedinBtn').textContent = config.premium[lang].linkedinBtn;
+            document.getElementById('remunom-submitBtn').textContent = config.premium[lang].submitBtn;
+            document.getElementById('remunom-access').href = config.premium.links.website;
+            document.getElementById('remunom-linkedin').href = config.premium.links.linkedin;
+            document.getElementById('remunom-submit').href = config.premium.links.submit;
 
             // Master
             document.getElementById('masterBadge').textContent = config.master.badge;
@@ -468,11 +611,19 @@
             document.getElementById('rsv-desc').textContent = config.master.journals[0][lang].description;
             document.getElementById('rsv-accessBtn').textContent = config.master.journals[0][lang].accessBtn;
             document.getElementById('rsv-linkedinBtn').textContent = config.master.journals[0][lang].linkedinBtn;
+            document.getElementById('rsv-submitBtn').textContent = config.master.journals[0][lang].submitBtn;
+            document.getElementById('rsv-access').href = config.master.journals[0].links.website;
+            document.getElementById('rsv-linkedin').href = config.master.journals[0].links.linkedin;
+            document.getElementById('rsv-submit').href = config.master.journals[0].links.submit;
 
             // RJNM
             document.getElementById('rjnm-desc').textContent = config.master.journals[1][lang].description;
             document.getElementById('rjnm-accessBtn').textContent = config.master.journals[1][lang].accessBtn;
             document.getElementById('rjnm-linkedinBtn').textContent = config.master.journals[1][lang].linkedinBtn;
+            document.getElementById('rjnm-submitBtn').textContent = config.master.journals[1][lang].submitBtn;
+            document.getElementById('rjnm-access').href = config.master.journals[1].links.website;
+            document.getElementById('rjnm-linkedin').href = config.master.journals[1].links.linkedin;
+            document.getElementById('rjnm-submit').href = config.master.journals[1].links.submit;
 
             // Technical
             document.getElementById('technicalBadge').textContent = config.technical.badge;
@@ -480,9 +631,77 @@
             document.getElementById('jirrs-desc').textContent = config.technical[lang].description;
             document.getElementById('jirrs-accessBtn').textContent = config.technical[lang].accessBtn;
             document.getElementById('jirrs-linkedinBtn').textContent = config.technical[lang].linkedinBtn;
+            document.getElementById('jirrs-submitBtn').textContent = config.technical[lang].submitBtn;
+            document.getElementById('jirrs-access').href = config.technical.links.website;
+            document.getElementById('jirrs-linkedin').href = config.technical.links.linkedin;
+            document.getElementById('jirrs-submit').href = config.technical.links.submit;
+
+            // Articles
+            document.getElementById('articlesTitle').textContent = config.articles[lang].title;
+            document.getElementById('articlesDesc').textContent = config.articles[lang].description;
 
             // Footer
             document.getElementById('footerText').textContent = config.footer[lang].copyright;
+        }
+
+        // Renderizar abas de artigos
+        function renderArticlesTabs() {
+            const tabsContainer = document.getElementById('articlesTabs');
+            tabsContainer.innerHTML = '';
+
+            const journals = [
+                { id: 'remunom', name: 'REMUNOM' },
+                { id: 'rsv', name: 'RSV' },
+                { id: 'rjnm', name: 'RJNM' },
+                { id: 'jirrs', name: 'JIRRS' }
+            ];
+
+            journals.forEach(journal => {
+                const btn = document.createElement('button');
+                btn.className = `tab-btn ${journal.id === currentArticleTab ? 'active' : ''}`;
+                btn.textContent = journal.name;
+                btn.onclick = () => {
+                    currentArticleTab = journal.id;
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderArticles(journal.id);
+                };
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        // Renderizar artigos
+        function renderArticles(journalId) {
+            const grid = document.getElementById('articlesGrid');
+            grid.innerHTML = '';
+
+            let articles = [];
+
+            if (journalId === 'remunom') {
+                articles = config.premium.articles;
+            } else if (journalId === 'rsv') {
+                articles = config.master.journals[0].articles;
+            } else if (journalId === 'rjnm') {
+                articles = config.master.journals[1].articles;
+            } else if (journalId === 'jirrs') {
+                articles = config.technical.articles;
+            }
+
+            const lang = currentLanguage;
+
+            articles.forEach(article => {
+                const card = document.createElement('div');
+                card.className = 'article-card';
+                card.innerHTML = `
+                    <h4>${article[lang].title}</h4>
+                    <p><strong>${article[lang].authors}</strong></p>
+                    <div class="article-views">
+                        <span class="views-count">${article.views} ${config.articles[lang].views}</span>
+                        <a href="${article[lang].link}" target="_blank" class="article-link">Ler</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
         // Carregar config ao iniciar
