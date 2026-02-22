@@ -6,6 +6,14 @@
     <title>UJN Portal - Unified Journals Network</title>
     <link rel="icon" type="image/png" href="./assets/ujn-logo.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SW5XRNYQH4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-SW5XRNYQH4');
+    </script>
     <style>
         * {
             margin: 0;
@@ -574,7 +582,7 @@
             <p data-i18n="hero.subtitle">Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.</p>
             <div class="hero-buttons">
                 <button class="btn btn-primary" data-i18n="hero.exploreBtn" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Explorar Revistas</button>
-                <a href="https://ujn.ojsbr.com/" target="_blank" class="btn btn-secondary" data-i18n="hero.learnMoreBtn">Saiba Mais</a>
+                <a href="https://seu-link-aqui.com" target="_blank" class="btn btn-secondary" data-i18n="hero.learnMoreBtn">Saiba Mais</a>
             </div>
         </div>
     </section>
@@ -649,7 +657,7 @@
 
             <div class="journal-card">
                 <h3>RJNM</h3>
-                <p data-i18n="rjnm.desc">ISSN 2675-4312 | Revista RJNM - CAPES Qualis B3 (2021 - 2024)</p>
+                <p data-i18n="rjnm.desc">ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)</p>
 
                 <div class="stats-grid">
                     <div class="stat-box">
@@ -670,6 +678,25 @@
             </div>
         </div>
     </section>
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" data-i18n="publishing.badge">PUBLICAÇÃO DE LIVROS</div>
+                <h2 data-i18n="publishing.title">Editora UJN - Publicação de Livros Científicos</h2>
+            </div>
+
+            <div class="journal-card">
+                <h3>Editora UJN</h3>
+                <p data-i18n="publishing.desc">Plataforma especializada em publicação de livros científicos com qualidade editorial de excelência</p>
+
+                <div class="button-group">
+                    <a href="https://editora.ujn.ojsbr.com/ujn/index" target="_blank" class="btn-action" data-i18n="buttons.accessPublishing">Acessar Editora UJN</a>
+                    <a href="https://www.linkedin.com/company/editora-unified-journals-network-ujn/?viewAsMember=true" target="_blank" class="btn-action" data-i18n="buttons.followLinkedin">Seguir no LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section class="section">
         <div class="container">
@@ -711,43 +738,43 @@
                     <p><strong>Diversos Autores</strong></p>
                     <div class="article-footer">
                         <span class="views-count">939 <span data-i18n="articles.views">visualizações</span></span>
-                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/4915" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
+                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
                 <div class="article-card" data-journal="remunom">
-                    <h4>MANEJO E BEM-ESTAR ANIMAL NA BOVINOCULTURA DE CORTE NO BRASIL: UMA REVISÃO DE LITERATURAL</h4>
-                    <p><strong>Eduarda Machado Gomes et all.</strong></p>
+                    <h4>ANÁLISE DE POLÍTICAS PÚBLICAS NO BRASIL</h4>
+                    <p><strong>João Silva, Maria Santos</strong></p>
                     <div class="article-footer">
                         <span class="views-count">778 <span data-i18n="articles.views">visualizações</span></span>
-                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/3783" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
+                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/2" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
                 <div class="article-card" data-journal="rsv" style="display: none;">
-                    <h4>TRIAGEM NEONATAL: A IMPORTÂNCIA DO DIAGNÓSTICO PRECOCE PARA A SAÚDE DO RECÉM-NASCIDO</h4>
-                    <p><strong>Mariana Gomes dos Santos et all.</strong></p>
+                    <h4>ARTIGO RSV 1</h4>
+                    <p><strong>Autores RSV</strong></p>
                     <div class="article-footer">
-                        <span class="views-count">346 <span data-i18n="articles.views">visualizações</span></span>
-                        <a href="https://rsv.ojsbr.com/rsv/article/view/4513" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
+                        <span class="views-count">150 <span data-i18n="articles.views">visualizações</span></span>
+                        <a href="https://rsv.ojsbr.com/rsv/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
                 <div class="article-card" data-journal="rjnm" style="display: none;">
-                    <h4>O PAGAMENTO DE PENSÃO ALIMENTÍCIA ENTRE EX-CÔNJUGES</h4>
-                    <p><strong>Italo Carlos de Oliveira et all.</strong></p>
+                    <h4>DIREITO CONSTITUCIONAL E POLÍTICAS PÚBLICAS</h4>
+                    <p><strong>Pedro Oliveira</strong></p>
                     <div class="article-footer">
                         <span class="views-count">200 <span data-i18n="articles.views">visualizações</span></span>
-                        <a href="https://jrnm.ojsbr.com/juridica/article/view/319" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
+                        <a href="https://jrnm.ojsbr.com/juridica/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
 
                 <div class="article-card" data-journal="jirrs" style="display: none;">
-                    <h4>A Comprehensive Review on the Comparison Between Plasterboard (Drywall) Systems and Conventional Brick Masonry in Building Construction</h4>
-                    <p><strong>Pedro Emílio Amador Salomão</strong></p>
+                    <h4>Artigo JIRRS 1</h4>
+                    <p><strong>Autores</strong></p>
                     <div class="article-footer">
                         <span class="views-count">100 <span data-i18n="articles.views">visualizações</span></span>
-                        <a href="https://jirrs.org.uk/jirrs/article/view/5557" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
+                        <a href="https://jirrs.org.uk/jirrs/article/view/1" target="_blank" class="article-link" data-i18n="articles.read">Ler</a>
                     </div>
                 </div>
             </div>
@@ -803,6 +830,11 @@
                 'buttons.publishRsv': 'Publicar na RSV',
                 'buttons.publishRjnm': 'Publicar na RJNM',
                 'buttons.publishJirrs': 'Publicar na JIRRS',
+                'buttons.accessPublishing': 'Acessar Editora UJN',
+                
+                'publishing.badge': 'PUBLICAÇÃO DE LIVROS',
+                'publishing.title': 'Editora UJN - Publicação de Livros Científicos',
+                'publishing.desc': 'Plataforma especializada em publicação de livros científicos com qualidade editorial de excelência',
                 
                 'articles.title': 'Artigos Recentes',
                 'articles.desc': 'Confira os artigos mais recentes publicados nas nossas revistas.',
@@ -849,6 +881,11 @@
                 'buttons.publishRsv': 'Publish in RSV',
                 'buttons.publishRjnm': 'Publish in RJNM',
                 'buttons.publishJirrs': 'Publish in JIRRS',
+                'buttons.accessPublishing': 'Access UJN Publishing',
+                
+                'publishing.badge': 'BOOK PUBLISHING',
+                'publishing.title': 'UJN Publishing - Scientific Book Publishing',
+                'publishing.desc': 'Specialized platform for publishing scientific books with excellence in editorial quality',
                 
                 'articles.title': 'Recent Articles',
                 'articles.desc': 'Check out the latest articles published in our journals.',
@@ -895,6 +932,11 @@
                 'buttons.publishRsv': 'Publicar en RSV',
                 'buttons.publishRjnm': 'Publicar en RJNM',
                 'buttons.publishJirrs': 'Publicar en JIRRS',
+                'buttons.accessPublishing': 'Acceder a Editorial UJN',
+                
+                'publishing.badge': 'PUBLICACIÓN DE LIBROS',
+                'publishing.title': 'Editorial UJN - Publicación de Libros Científicos',
+                'publishing.desc': 'Plataforma especializada en publicación de libros científicos con excelencia en calidad editorial',
                 
                 'articles.title': 'Artículos Recientes',
                 'articles.desc': 'Consulte los últimos artículos publicados en nuestras revistas.',
@@ -982,4 +1024,3 @@
     </script>
 </body>
 </html>
-
