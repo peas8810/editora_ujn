@@ -9,21 +9,21 @@
       "subtitle": "Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.",
       "exploreBtn": "Explorar Revistas",
       "learnMoreBtn": "Saiba Mais",
-      "learnMoreLink": "https://ujn.ojsbr.com/"
+      "learnMoreLink": "https://seu-link-aqui.com"
     },
     "en": {
       "title": "Integrated Scientific Journals Platform",
       "subtitle": "Access Brazil's leading scientific journals with editorial excellence, methodological rigor and national and international reach.",
       "exploreBtn": "Explore Journals",
       "learnMoreBtn": "Learn More",
-      "learnMoreLink": "https://ujn.ojsbr.com/"
+      "learnMoreLink": "https://your-link-here.com"
     },
     "es": {
       "title": "Plataforma Integrada de Revistas Científicas",
       "subtitle": "Acceda a las principales revistas científicas de Brasil con excelencia editorial, rigor metodológico y alcance nacional e internacional.",
       "exploreBtn": "Explorar Revistas",
       "learnMoreBtn": "Más Información",
-      "learnMoreLink": "https://ujn.ojsbr.com/"
+      "learnMoreLink": "https://tu-enlace-aqui.com"
     }
   },
   "premium": {
@@ -32,30 +32,75 @@
       "title": "Revista REMUNOM - Seção Premium",
       "description": "Revista Multidisciplinar - Qualis A2",
       "accessBtn": "Acessar REMUNOM",
-      "linkedinBtn": "Seguir no LinkedIn"
+      "linkedinBtn": "Seguir no LinkedIn",
+      "submitBtn": "Publicar na REMUNOM"
     },
     "en": {
       "title": "REMUNOM Journal - Premium Section",
       "description": "Multidisciplinary Journal - Qualis A2",
       "accessBtn": "Access REMUNOM",
-      "linkedinBtn": "Follow on LinkedIn"
+      "linkedinBtn": "Follow on LinkedIn",
+      "submitBtn": "Publish in REMUNOM"
     },
     "es": {
       "title": "Revista REMUNOM - Sección Premium",
       "description": "Revista Multidisciplinaria - Qualis A2",
       "accessBtn": "Acceder a REMUNOM",
-      "linkedinBtn": "Seguir en LinkedIn"
-    },
-    "links": {
-      "website": "https://remunom.ojsbr.com/multidisciplinar/index",
-      "linkedin": "https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true"
+      "linkedinBtn": "Seguir en LinkedIn",
+      "submitBtn": "Publicar en REMUNOM"
     },
     "stats": {
       "hIndex": 11,
       "citations": 2127,
       "googleH": 18,
       "i10": 41
-    }
+    },
+    "submitBtn": "Publicar na REMUNOM",
+    "links": {
+      "website": "https://remunom.ojsbr.com/multidisciplinar/index",
+      "linkedin": "https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true",
+      "submit": "https://remunom.ojsbr.com/multidisciplinar/index"
+    },
+    "articles": [
+      {
+        "id": 1,
+        "pt": {
+          "title": "IMPACTO DO MOUNJARO NA PERDA DE PESO E QUALIDADE DE VIDA",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/1"
+        },
+        "en": {
+          "title": "IMPACT OF MOUNJARO ON WEIGHT LOSS AND QUALITY OF LIFE",
+          "authors": "Various Authors",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/1"
+        },
+        "es": {
+          "title": "IMPACTO DE MOUNJARO EN LA PÉRDIDA DE PESO Y CALIDAD DE VIDA",
+          "authors": "Diversos Autores",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/1"
+        },
+        "views": 939
+      },
+      {
+        "id": 2,
+        "pt": {
+          "title": "ANÁLISE DE POLÍTICAS PÚBLICAS NO BRASIL",
+          "authors": "João Silva, Maria Santos",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
+        },
+        "en": {
+          "title": "ANALYSIS OF PUBLIC POLICIES IN BRAZIL",
+          "authors": "João Silva, Maria Santos",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
+        },
+        "es": {
+          "title": "ANÁLISIS DE POLÍTICAS PÚBLICAS EN BRASIL",
+          "authors": "João Silva, Maria Santos",
+          "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
+        },
+        "views": 778
+      }
+    ]
   },
   "master": {
     "badge": "QUALIS B3 E B4 - ÍNDICE H5",
@@ -94,7 +139,42 @@
         "stats": {
           "hIndex": 6,
           "citations": 363
-        }
+        },
+        "pt": {
+          "submitBtn": "Publicar na RSV"
+        },
+        "en": {
+          "submitBtn": "Publish in RSV"
+        },
+        "es": {
+          "submitBtn": "Publicar en RSV"
+        },
+        "links": {
+          "website": "https://rsv.ojsbr.com/rsv/index",
+          "linkedin": "https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true",
+          "submit": "https://rsv.ojsbr.com/rsv/index"
+        },
+        "articles": [
+          {
+            "id": 1,
+            "pt": {
+              "title": "ARTIGO RSV 1",
+              "authors": "Autores RSV",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/1"
+            },
+            "en": {
+              "title": "RSV ARTICLE 1",
+              "authors": "RSV Authors",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/1"
+            },
+            "es": {
+              "title": "ARTÍCULO RSV 1",
+              "authors": "Autores RSV",
+              "link": "https://rsv.ojsbr.com/rsv/article/view/1"
+            },
+            "views": 150
+          }
+        ]
       },
       {
         "id": "rjnm",
@@ -121,7 +201,42 @@
         "stats": {
           "hIndex": 4,
           "citations": 114
-        }
+        },
+        "pt": {
+          "submitBtn": "Publicar na RJNM"
+        },
+        "en": {
+          "submitBtn": "Publish in RJNM"
+        },
+        "es": {
+          "submitBtn": "Publicar en RJNM"
+        },
+        "links": {
+          "website": "https://jrnm.ojsbr.com/juridica/index",
+          "linkedin": "https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true",
+          "submit": "https://jrnm.ojsbr.com/juridica/index"
+        },
+        "articles": [
+          {
+            "id": 1,
+            "pt": {
+              "title": "DIREITO CONSTITUCIONAL E POLÍTICAS PÚBLICAS",
+              "authors": "Pedro Oliveira",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
+            },
+            "en": {
+              "title": "CONSTITUTIONAL LAW AND PUBLIC POLICIES",
+              "authors": "Pedro Oliveira",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
+            },
+            "es": {
+              "title": "DERECHO CONSTITUCIONAL Y POLÍTICAS PÚBLICAS",
+              "authors": "Pedro Oliveira",
+              "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
+            },
+            "views": 200
+          }
+        ]
       }
     ]
   },
@@ -131,23 +246,65 @@
       "title": "JIRRS - Revista Técnica Internacional",
       "description": "Journal of International Research and Reviews - Reino Unido",
       "accessBtn": "Acessar JIRRS",
-      "linkedinBtn": "Seguir no LinkedIn"
+      "linkedinBtn": "Seguir no LinkedIn",
+      "submitBtn": "Publicar na JIRRS"
     },
     "en": {
       "title": "JIRRS - International Technical Journal",
       "description": "Journal of International Research and Reviews - United Kingdom",
       "accessBtn": "Access JIRRS",
-      "linkedinBtn": "Follow on LinkedIn"
+      "linkedinBtn": "Follow on LinkedIn",
+      "submitBtn": "Publish in JIRRS"
     },
     "es": {
       "title": "JIRRS - Revista Técnica Internacional",
       "description": "Journal of International Research and Reviews - Reino Unido",
       "accessBtn": "Acceder a JIRRS",
-      "linkedinBtn": "Seguir en LinkedIn"
+      "linkedinBtn": "Seguir en LinkedIn",
+      "submitBtn": "Publicar en JIRRS"
     },
     "links": {
       "website": "https://jirrs.org.uk/jirrs/index",
-      "linkedin": "https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true"
+      "linkedin": "https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true",
+      "submit": "https://jirrs.org.uk/jirrs/index"
+    },
+    "articles": [
+      {
+        "id": 1,
+        "pt": {
+          "title": "Artigo JIRRS 1",
+          "authors": "Autores",
+          "link": "https://jirrs.org.uk/jirrs/article/view/1"
+        },
+        "en": {
+          "title": "JIRRS Article 1",
+          "authors": "Authors",
+          "link": "https://jirrs.org.uk/jirrs/article/view/1"
+        },
+        "es": {
+          "title": "Artículo JIRRS 1",
+          "authors": "Autores",
+          "link": "https://jirrs.org.uk/jirrs/article/view/1"
+        },
+        "views": 100
+      }
+    ]
+  },
+  "articles": {
+    "pt": {
+      "title": "Artigos Recentes",
+      "description": "Confira os artigos mais recentes publicados nas nossas revistas.",
+      "views": "visualizações"
+    },
+    "en": {
+      "title": "Recent Articles",
+      "description": "Check out the latest articles published in our journals.",
+      "views": "views"
+    },
+    "es": {
+      "title": "Artículos Recientes",
+      "description": "Consulte los últimos artículos publicados en nuestras revistas.",
+      "views": "vistas"
     }
   },
   "footer": {
