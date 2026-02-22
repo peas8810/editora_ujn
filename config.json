@@ -1,0 +1,164 @@
+{
+  "site": {
+    "title": "UJN Portal - Unified Journals Network",
+    "description": "Plataforma Integrada de Revistas Científicas"
+  },
+  "hero": {
+    "pt": {
+      "title": "Plataforma Integrada de Revistas Científicas",
+      "subtitle": "Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.",
+      "exploreBtn": "Explorar Revistas",
+      "learnMoreBtn": "Saiba Mais",
+      "learnMoreLink": "https://seu-link-aqui.com"
+    },
+    "en": {
+      "title": "Integrated Scientific Journals Platform",
+      "subtitle": "Access Brazil's leading scientific journals with editorial excellence, methodological rigor and national and international reach.",
+      "exploreBtn": "Explore Journals",
+      "learnMoreBtn": "Learn More",
+      "learnMoreLink": "https://your-link-here.com"
+    },
+    "es": {
+      "title": "Plataforma Integrada de Revistas Científicas",
+      "subtitle": "Acceda a las principales revistas científicas de Brasil con excelencia editorial, rigor metodológico y alcance nacional e internacional.",
+      "exploreBtn": "Explorar Revistas",
+      "learnMoreBtn": "Más Información",
+      "learnMoreLink": "https://tu-enlace-aqui.com"
+    }
+  },
+  "premium": {
+    "badge": "QUALIS A2 - ÍNDICE H13",
+    "pt": {
+      "title": "Revista REMUNOM - Seção Premium",
+      "description": "Revista Multidisciplinar - Qualis A2",
+      "accessBtn": "Acessar REMUNOM",
+      "linkedinBtn": "Seguir no LinkedIn"
+    },
+    "en": {
+      "title": "REMUNOM Journal - Premium Section",
+      "description": "Multidisciplinary Journal - Qualis A2",
+      "accessBtn": "Access REMUNOM",
+      "linkedinBtn": "Follow on LinkedIn"
+    },
+    "es": {
+      "title": "Revista REMUNOM - Sección Premium",
+      "description": "Revista Multidisciplinaria - Qualis A2",
+      "accessBtn": "Acceder a REMUNOM",
+      "linkedinBtn": "Seguir en LinkedIn"
+    },
+    "links": {
+      "website": "https://remunom.ojsbr.com/multidisciplinar/index",
+      "linkedin": "https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true"
+    },
+    "stats": {
+      "hIndex": 11,
+      "citations": 2127,
+      "googleH": 18,
+      "i10": 41
+    }
+  },
+  "master": {
+    "badge": "QUALIS B3 E B4 - ÍNDICE H5",
+    "pt": {
+      "title": "Revistas Máster"
+    },
+    "en": {
+      "title": "Master Journals"
+    },
+    "es": {
+      "title": "Revistas Máster"
+    },
+    "journals": [
+      {
+        "id": "rsv",
+        "name": "RSV",
+        "pt": {
+          "description": "ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)",
+          "accessBtn": "Acessar RSV",
+          "linkedinBtn": "Seguir no LinkedIn"
+        },
+        "en": {
+          "description": "ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)",
+          "accessBtn": "Access RSV",
+          "linkedinBtn": "Follow on LinkedIn"
+        },
+        "es": {
+          "description": "ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)",
+          "accessBtn": "Acceder a RSV",
+          "linkedinBtn": "Seguir en LinkedIn"
+        },
+        "links": {
+          "website": "https://rsv.ojsbr.com/rsv/index",
+          "linkedin": "https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true"
+        },
+        "stats": {
+          "hIndex": 6,
+          "citations": 363
+        }
+      },
+      {
+        "id": "rjnm",
+        "name": "RJNM",
+        "pt": {
+          "description": "ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)",
+          "accessBtn": "Acessar RJNM",
+          "linkedinBtn": "Seguir no LinkedIn"
+        },
+        "en": {
+          "description": "ISSN 2675-4312 | Legal Journal of Northeastern Minas - CAPES Qualis B3 (2021 - 2024)",
+          "accessBtn": "Access RJNM",
+          "linkedinBtn": "Follow on LinkedIn"
+        },
+        "es": {
+          "description": "ISSN 2675-4312 | Revista Jurídica del Nordeste Minero - CAPES Qualis B3 (2021 - 2024)",
+          "accessBtn": "Acceder a RJNM",
+          "linkedinBtn": "Seguir en LinkedIn"
+        },
+        "links": {
+          "website": "https://jrnm.ojsbr.com/juridica/index",
+          "linkedin": "https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true"
+        },
+        "stats": {
+          "hIndex": 4,
+          "citations": 114
+        }
+      }
+    ]
+  },
+  "technical": {
+    "badge": "TÉCNICA",
+    "pt": {
+      "title": "JIRRS - Revista Técnica Internacional",
+      "description": "Journal of International Research and Reviews - Reino Unido",
+      "accessBtn": "Acessar JIRRS",
+      "linkedinBtn": "Seguir no LinkedIn"
+    },
+    "en": {
+      "title": "JIRRS - International Technical Journal",
+      "description": "Journal of International Research and Reviews - United Kingdom",
+      "accessBtn": "Access JIRRS",
+      "linkedinBtn": "Follow on LinkedIn"
+    },
+    "es": {
+      "title": "JIRRS - Revista Técnica Internacional",
+      "description": "Journal of International Research and Reviews - Reino Unido",
+      "accessBtn": "Acceder a JIRRS",
+      "linkedinBtn": "Seguir en LinkedIn"
+    },
+    "links": {
+      "website": "https://jirrs.org.uk/jirrs/index",
+      "linkedin": "https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true"
+    }
+  },
+  "footer": {
+    "pt": {
+      "copyright": "© 2024 Unified Journals Network. Todos os direitos reservados."
+    },
+    "en": {
+      "copyright": "© 2024 Unified Journals Network. All rights reserved."
+    },
+    "es": {
+      "copyright": "© 2024 Red de Revistas Unificadas. Todos los derechos reservados."
+    }
+  }
+}
