@@ -1,47 +1,840 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Unified Journals Portal</title>    
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UJN Portal - Unified Journals Network</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-      * {
-        font-family: Arial, sans-serif !important;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f3460;
+            --secondary: #d4af37;
+            --accent: #16213e;
+            --light-bg: #f8f9fa;
+            --light-text: #1a1a2e;
+            --dark-bg: #0f1419;
+            --dark-text: #e8e8e8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--light-bg);
+            color: var(--light-text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: transparent;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--secondary);
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        body.dark-mode .section {
+            background: #1a1f2e;
+            border-top-color: #2a2a3e;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Journal Card */
+        .journal-card {
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+        }
+
+        body.dark-mode .journal-card {
+            background: #252d3d;
+            border-color: #2a2a3e;
+        }
+
+        .journal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .journal-card h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .journal-card p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            background: white;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        body.dark-mode .stat-box {
+            background: #1a1f2e;
+            border-color: #2a2a3e;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-action {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-action:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-linkedin {
+            background: #0077b5;
+        }
+
+        .btn-linkedin:hover {
+            background: #005885;
+            color: white;
+        }
+
+        .btn-submit {
+            background: #28a745;
+        }
+
+        .btn-submit:hover {
+            background: #218838;
+            color: white;
+        }
+
+        /* Articles */
+        .articles-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        body.dark-mode .articles-tabs {
+            border-bottom-color: #2a2a3e;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            color: #666;
+        }
+
+        body.dark-mode .tab-btn {
+            color: #aaa;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .tab-btn:hover {
+            color: var(--primary);
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .article-card {
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s;
+            background: white;
+            border: 1px solid #e0e0e0;
+        }
+
+        body.dark-mode .article-card {
+            background: #252d3d;
+            border-color: #2a2a3e;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .article-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            color: var(--primary);
+        }
+
+        .article-card p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 15px;
+        }
+
+        body.dark-mode .article-footer {
+            border-top-color: #2a2a3e;
+        }
+
+        .views-count {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .article-link {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .article-link:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Back to Top */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        #backToTop.show {
+            display: flex;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .section {
+                padding: 50px 20px;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
-    <link rel="stylesheet" crossorigin href="./assets/style.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    
+</head>
+<body class="light-mode">
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-book"></i>
+                <span>UJN Portal</span>
+            </div>
+            <div class="header-controls">
+                <div class="language-selector">
+                    <button class="lang-btn active" onclick="changeLanguage('pt')">PT</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="changeLanguage('es')">ES</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">ECOSSISTEMA UJN - UNIFIED JOURNALS NETWORK</div>
+            <h1>Plataforma Integrada de Revistas Científicas</h1>
+            <p>Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Explorar Revistas</button>
+                <a href="https://seu-link-aqui.com" target="_blank" class="btn btn-secondary">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">QUALIS A2 - ÍNDICE H13</div>
+                <h2>Revista REMUNOM - Seção Premium</h2>
+            </div>
+
+            <div class="journal-card">
+                <h3>REMUNOM</h3>
+                <p>Revista Multidisciplinar - Qualis A2</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">11</div>
+                        <div class="stat-label">H-Index</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">2127</div>
+                        <div class="stat-label">Citações</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Google H</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">41</div>
+                        <div class="stat-label">I10-Index</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action">Acessar REMUNOM</a>
+                    <a href="https://www.linkedin.com/company/remunom-revista-multidisciplinar-do-nordeste-mineiro/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
+                    <a href="https://remunom.ojsbr.com/multidisciplinar/index" target="_blank" class="btn-action btn-submit">Publicar na REMUNOM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Master Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">QUALIS B3 E B4 - ÍNDICE H5</div>
+                <h2>Revistas Máster</h2>
+            </div>
+
+            <!-- RSV -->
+            <div class="journal-card">
+                <h3>RSV</h3>
+                <p>ISSN 2674-8584 | CAPES - Qualis B4 (2021 - 2024)</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">H-Index</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">363</div>
+                        <div class="stat-label">Citações</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action">Acessar RSV</a>
+                    <a href="https://www.linkedin.com/company/rsv-issn-2674-8584-qualis-b4-2021-2024/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
+                    <a href="https://rsv.ojsbr.com/rsv/index" target="_blank" class="btn-action btn-submit">Publicar na RSV</a>
+                </div>
+            </div>
+
+            <!-- RJNM -->
+            <div class="journal-card">
+                <h3>RJNM</h3>
+                <p>ISSN 2675-4312 | Revista Jurídica do Nordeste Mineiro - CAPES Qualis B3 (2021 - 2024)</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">4</div>
+                        <div class="stat-label">H-Index</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">114</div>
+                        <div class="stat-label">Citações</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action">Acessar RJNM</a>
+                    <a href="https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
+                    <a href="https://jrnm.ojsbr.com/juridica/index" target="_blank" class="btn-action btn-submit">Publicar na RJNM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">TÉCNICA</div>
+                <h2>JIRRS - Revista Técnica Internacional</h2>
+            </div>
+
+            <div class="journal-card">
+                <h3>JIRRS</h3>
+                <p>Journal of International Research and Reviews - Reino Unido</p>
+
+                <div class="button-group">
+                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action">Acessar JIRRS</a>
+                    <a href="https://www.linkedin.com/company/journal-international-review-of-research-studies-jirrs/?viewAsMember=true" target="_blank" class="btn-action btn-linkedin">Seguir no LinkedIn</a>
+                    <a href="https://jirrs.org.uk/jirrs/index" target="_blank" class="btn-action btn-submit">Publicar na JIRRS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Artigos Recentes</h2>
+                <p class="section-desc">Confira os artigos mais recentes publicados nas nossas revistas.</p>
+            </div>
+
+            <div class="articles-tabs">
+                <button class="tab-btn active" onclick="showArticles('remunom', this)">REMUNOM</button>
+                <button class="tab-btn" onclick="showArticles('rsv', this)">RSV</button>
+                <button class="tab-btn" onclick="showArticles('rjnm', this)">RJNM</button>
+                <button class="tab-btn" onclick="showArticles('jirrs', this)">JIRRS</button>
+            </div>
+
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Artigos REMUNOM -->
+                <div class="article-card" data-journal="remunom">
+                    <h4>IMPACTO DO MOUNJARO NA PERDA DE PESO E QUALIDADE DE VIDA</h4>
+                    <p><strong>Diversos Autores</strong></p>
+                    <div class="article-footer">
+                        <span class="views-count">939 visualizações</span>
+                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/1" target="_blank" class="article-link">Ler</a>
+                    </div>
+                </div>
+
+                <div class="article-card" data-journal="remunom">
+                    <h4>ANÁLISE DE POLÍTICAS PÚBLICAS NO BRASIL</h4>
+                    <p><strong>João Silva, Maria Santos</strong></p>
+                    <div class="article-footer">
+                        <span class="views-count">778 visualizações</span>
+                        <a href="https://remunom.ojsbr.com/multidisciplinar/article/view/2" target="_blank" class="article-link">Ler</a>
+                    </div>
+                </div>
+
+                <!-- Artigos RSV -->
+                <div class="article-card" data-journal="rsv" style="display: none;">
+                    <h4>ARTIGO RSV 1</h4>
+                    <p><strong>Autores RSV</strong></p>
+                    <div class="article-footer">
+                        <span class="views-count">150 visualizações</span>
+                        <a href="https://rsv.ojsbr.com/rsv/article/view/1" target="_blank" class="article-link">Ler</a>
+                    </div>
+                </div>
+
+                <!-- Artigos RJNM -->
+                <div class="article-card" data-journal="rjnm" style="display: none;">
+                    <h4>DIREITO CONSTITUCIONAL E POLÍTICAS PÚBLICAS</h4>
+                    <p><strong>Pedro Oliveira</strong></p>
+                    <div class="article-footer">
+                        <span class="views-count">200 visualizações</span>
+                        <a href="https://jrnm.ojsbr.com/juridica/article/view/1" target="_blank" class="article-link">Ler</a>
+                    </div>
+                </div>
+
+                <!-- Artigos JIRRS -->
+                <div class="article-card" data-journal="jirrs" style="display: none;">
+                    <h4>Artigo JIRRS 1</h4>
+                    <p><strong>Autores</strong></p>
+                    <div class="article-footer">
+                        <span class="views-count">100 visualizações</span>
+                        <a href="https://jirrs.org.uk/jirrs/article/view/1" target="_blank" class="article-link">Ler</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()" title="Voltar ao início">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Unified Journals Network. Todos os direitos reservados.</p>
+            <p><a href="#">Sobre</a> | <a href="#">Contato</a> | <a href="#">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
     <script>
-      // Carregar config.json antes de carregar o React
-      let appConfig = null;
-      
-      fetch('./config.json')
-        .then(response => response.json())
-        .then(data => {
-          appConfig = data;
-          // Injetar config no window para o React acessar
-          window.__APP_CONFIG__ = appConfig;
-          
-          // Agora carregar o React
-          loadReactApp();
-        })
-        .catch(error => {
-          console.error('Erro ao carregar config.json:', error);
-          // Se falhar, carregar React mesmo assim com valores padrão
-          window.__APP_CONFIG__ = {};
-          loadReactApp();
+        // Mudar idioma
+        function changeLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            alert(`Idioma alterado para: ${lang.toUpperCase()}\n\nNota: Para traduzir o site, edite os textos no HTML manualmente.`);
+        }
+
+        // Alternar tema
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const btn = event.target.closest('.theme-toggle');
+            if (document.body.classList.contains('dark-mode')) {
+                btn.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                btn.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Mostrar/ocultar artigos por revista
+        function showArticles(journal, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.article-card').forEach(card => {
+                if (card.dataset.journal === journal) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Voltar ao topo
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mostrar/ocultar botão voltar ao topo
+        window.addEventListener('scroll', () => {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
         });
-      
-      function loadReactApp() {
-        const script = document.createElement('script');
-        script.type = 'module';
-        script.crossOrigin = 'anonymous';
-        script.src = './assets/index.js';
-        document.body.appendChild(script);
-      }
+
+        // Restaurar tema salvo
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.theme-toggle').innerHTML = '<i class="fas fa-sun"></i>';
+        }
     </script>
-  </body>
+</body>
 </html>
