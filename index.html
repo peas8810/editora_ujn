@@ -518,6 +518,57 @@
             text-decoration: underline;
         }
 
+        /* ====== ADIÇÃO: ÁREAS DE PESQUISA EM ABA RETRÁTIL NA HERO ====== */
+        .research-accordion {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .research-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .research-panel {
+            width: 100%;
+            max-width: 980px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease;
+        }
+
+        .research-panel.open {
+            max-height: 2000px;
+        }
+
+        .research-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            padding-top: 10px;
+        }
+
+        .research-box {
+            padding: 12px 18px;
+            font-size: 0.95rem;
+            line-height: 1.2;
+            cursor: default;
+            user-select: none;
+        }
+
+        .research-box:hover {
+            background: var(--primary);
+            color: white;
+            transform: none;
+            box-shadow: none;
+        }
+        /* ====== FIM ADIÇÃO ====== */
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.2rem;
@@ -584,6 +635,46 @@
                 <button class="btn btn-primary" data-i18n="hero.exploreBtn" onclick="document.querySelector('.section').scrollIntoView({behavior: 'smooth'})">Explorar Revistas</button>
                 <a href="https://seu-link-aqui.com" target="_blank" class="btn btn-secondary" data-i18n="hero.learnMoreBtn">Saiba Mais</a>
             </div>
+
+            <!-- ADIÇÃO: ABA RETRÁTIL COM ÁREAS DE PESQUISA (DENTRO DA HERO) -->
+            <div class="research-accordion">
+                <button class="btn-action research-toggle" onclick="toggleResearch()" aria-expanded="false" aria-controls="researchPanel" data-i18n="research.toggle">
+                    Áreas de Pesquisa <i class="fas fa-chevron-down"></i>
+                </button>
+
+                <div id="researchPanel" class="research-panel" aria-hidden="true">
+                    <div class="research-grid">
+                        <span class="btn-action research-box" data-i18n="research.list.01">Administração Pública e de Empresas, Ciências Contábeis e Turismo</span>
+                        <span class="btn-action research-box" data-i18n="research.list.02">Astronomia / Física</span>
+                        <span class="btn-action research-box" data-i18n="research.list.03">Biodiversidade</span>
+                        <span class="btn-action research-box" data-i18n="research.list.04">Ciências Agrárias I</span>
+                        <span class="btn-action research-box" data-i18n="research.list.05">Ciências Ambientais</span>
+                        <span class="btn-action research-box" data-i18n="research.list.06">Ciências Biológicas I</span>
+                        <span class="btn-action research-box" data-i18n="research.list.07">Ciências da Religião e Teologia</span>
+                        <span class="btn-action research-box" data-i18n="research.list.08">Ciências e Humanidades para a Educação Básica</span>
+                        <span class="btn-action research-box" data-i18n="research.list.09">Direito</span>
+                        <span class="btn-action research-box" data-i18n="research.list.10">Economia</span>
+                        <span class="btn-action research-box" data-i18n="research.list.11">Educação</span>
+                        <span class="btn-action research-box" data-i18n="research.list.12">Educação Física, Fisioterapia, Fonoaudiologia e Terapia Ocupacional</span>
+                        <span class="btn-action research-box" data-i18n="research.list.13">Engenharias II</span>
+                        <span class="btn-action research-box" data-i18n="research.list.14">Engenharias IV</span>
+                        <span class="btn-action research-box" data-i18n="research.list.15">Ensino</span>
+                        <span class="btn-action research-box" data-i18n="research.list.16">Farmácia</span>
+                        <span class="btn-action research-box" data-i18n="research.list.17">Geociências</span>
+                        <span class="btn-action research-box" data-i18n="research.list.18">Geografia</span>
+                        <span class="btn-action research-box" data-i18n="research.list.19">História</span>
+                        <span class="btn-action research-box" data-i18n="research.list.20">Interdisciplinar</span>
+                        <span class="btn-action research-box" data-i18n="research.list.21">Linguística e Literatura</span>
+                        <span class="btn-action research-box" data-i18n="research.list.22">Medicina Veterinária</span>
+                        <span class="btn-action research-box" data-i18n="research.list.23">Nutrição</span>
+                        <span class="btn-action research-box" data-i18n="research.list.24">Odontologia</span>
+                        <span class="btn-action research-box" data-i18n="research.list.25">Psicologia</span>
+                        <span class="btn-action research-box" data-i18n="research.list.26">Saúde Coletiva</span>
+                        <span class="btn-action research-box" data-i18n="research.list.27">Serviço Social</span>
+                    </div>
+                </div>
+            </div>
+            <!-- FIM ADIÇÃO -->
         </div>
     </section>
 
@@ -801,6 +892,35 @@
                 'hero.subtitle': 'Acesse as principais revistas científicas do Brasil com excelência editorial, rigor metodológico e alcance nacional e internacional.',
                 'hero.exploreBtn': 'Explorar Revistas',
                 'hero.learnMoreBtn': 'Saiba Mais',
+
+                'research.toggle': 'Áreas de Pesquisa',
+                'research.list.01': 'Administração Pública e de Empresas, Ciências Contábeis e Turismo',
+                'research.list.02': 'Astronomia / Física',
+                'research.list.03': 'Biodiversidade',
+                'research.list.04': 'Ciências Agrárias I',
+                'research.list.05': 'Ciências Ambientais',
+                'research.list.06': 'Ciências Biológicas I',
+                'research.list.07': 'Ciências da Religião e Teologia',
+                'research.list.08': 'Ciências e Humanidades para a Educação Básica',
+                'research.list.09': 'Direito',
+                'research.list.10': 'Economia',
+                'research.list.11': 'Educação',
+                'research.list.12': 'Educação Física, Fisioterapia, Fonoaudiologia e Terapia Ocupacional',
+                'research.list.13': 'Engenharias II',
+                'research.list.14': 'Engenharias IV',
+                'research.list.15': 'Ensino',
+                'research.list.16': 'Farmácia',
+                'research.list.17': 'Geociências',
+                'research.list.18': 'Geografia',
+                'research.list.19': 'História',
+                'research.list.20': 'Interdisciplinar',
+                'research.list.21': 'Linguística e Literatura',
+                'research.list.22': 'Medicina Veterinária',
+                'research.list.23': 'Nutrição',
+                'research.list.24': 'Odontologia',
+                'research.list.25': 'Psicologia',
+                'research.list.26': 'Saúde Coletiva',
+                'research.list.27': 'Serviço Social',
                 
                 'premium.badge': 'QUALIS A2 - ÍNDICE H13',
                 'premium.title': 'Revista REMUNOM - Seção Premium',
@@ -852,6 +972,35 @@
                 'hero.subtitle': 'Access Brazil\'s leading scientific journals with editorial excellence, methodological rigor and national and international reach.',
                 'hero.exploreBtn': 'Explore Journals',
                 'hero.learnMoreBtn': 'Learn More',
+
+                'research.toggle': 'Research Areas',
+                'research.list.01': 'Public and Business Administration, Accounting Sciences and Tourism',
+                'research.list.02': 'Astronomy / Physics',
+                'research.list.03': 'Biodiversity',
+                'research.list.04': 'Agricultural Sciences I',
+                'research.list.05': 'Environmental Sciences',
+                'research.list.06': 'Biological Sciences I',
+                'research.list.07': 'Religious Studies and Theology',
+                'research.list.08': 'Sciences and Humanities for Basic Education',
+                'research.list.09': 'Law',
+                'research.list.10': 'Economics',
+                'research.list.11': 'Education',
+                'research.list.12': 'Physical Education, Physiotherapy, Speech Therapy and Occupational Therapy',
+                'research.list.13': 'Engineering II',
+                'research.list.14': 'Engineering IV',
+                'research.list.15': 'Teaching',
+                'research.list.16': 'Pharmacy',
+                'research.list.17': 'Geosciences',
+                'research.list.18': 'Geography',
+                'research.list.19': 'History',
+                'research.list.20': 'Interdisciplinary',
+                'research.list.21': 'Linguistics and Literature',
+                'research.list.22': 'Veterinary Medicine',
+                'research.list.23': 'Nutrition',
+                'research.list.24': 'Dentistry',
+                'research.list.25': 'Psychology',
+                'research.list.26': 'Public Health',
+                'research.list.27': 'Social Work',
                 
                 'premium.badge': 'QUALIS A2 - H-INDEX 13',
                 'premium.title': 'REMUNOM Journal - Premium Section',
@@ -903,6 +1052,35 @@
                 'hero.subtitle': 'Acceda a las principales revistas científicas de Brasil con excelencia editorial, rigor metodológico y alcance nacional e internacional.',
                 'hero.exploreBtn': 'Explorar Revistas',
                 'hero.learnMoreBtn': 'Más Información',
+
+                'research.toggle': 'Áreas de Investigación',
+                'research.list.01': 'Administración Pública y Empresarial, Ciencias Contables y Turismo',
+                'research.list.02': 'Astronomía / Física',
+                'research.list.03': 'Biodiversidad',
+                'research.list.04': 'Ciencias Agrarias I',
+                'research.list.05': 'Ciencias Ambientales',
+                'research.list.06': 'Ciencias Biológicas I',
+                'research.list.07': 'Ciencias de la Religión y Teología',
+                'research.list.08': 'Ciencias y Humanidades para la Educación Básica',
+                'research.list.09': 'Derecho',
+                'research.list.10': 'Economía',
+                'research.list.11': 'Educación',
+                'research.list.12': 'Educación Física, Fisioterapia, Fonoaudiología y Terapia Ocupacional',
+                'research.list.13': 'Ingenierías II',
+                'research.list.14': 'Ingenierías IV',
+                'research.list.15': 'Enseñanza',
+                'research.list.16': 'Farmacia',
+                'research.list.17': 'Geociencias',
+                'research.list.18': 'Geografía',
+                'research.list.19': 'Historia',
+                'research.list.20': 'Interdisciplinar',
+                'research.list.21': 'Lingüística y Literatura',
+                'research.list.22': 'Medicina Veterinaria',
+                'research.list.23': 'Nutrición',
+                'research.list.24': 'Odontología',
+                'research.list.25': 'Psicología',
+                'research.list.26': 'Salud Colectiva',
+                'research.list.27': 'Servicio Social',
                 
                 'premium.badge': 'QUALIS A2 - ÍNDICE H13',
                 'premium.title': 'Revista REMUNOM - Sección Premium',
@@ -931,7 +1109,7 @@
                 'buttons.publishRemunom': 'Publicar en REMUNOM',
                 'buttons.publishRsv': 'Publicar en RSV',
                 'buttons.publishRjnm': 'Publicar en RJNM',
-                'buttons.publishJirrs': 'Publicar en JIRRS',
+                'buttons.publishJirrs': 'Publicar na JIRRS',
                 'buttons.accessPublishing': 'Acceder a Editorial UJN',
                 
                 'publishing.badge': 'PUBLICACIÓN DE LIBROS',
@@ -1003,6 +1181,21 @@
                 backToTopBtn.classList.remove('show');
             }
         });
+
+        // ADIÇÃO: toggle da aba retrátil Áreas de Pesquisa
+        function toggleResearch() {
+            const panel = document.getElementById('researchPanel');
+            const toggleBtn = document.querySelector('.research-toggle');
+            const icon = toggleBtn.querySelector('i');
+
+            const isOpen = panel.classList.toggle('open');
+            toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+
+            if (icon) {
+                icon.className = isOpen ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+            }
+        }
 
         // Restaurar tema salvo
         const savedTheme = localStorage.getItem('theme') || 'light';
