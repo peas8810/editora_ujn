@@ -50,10 +50,10 @@
       "submitBtn": "Publicar en REMUNOM"
     },
     "stats": {
-      "hIndex": 11,
-      "citations": 2127,
-      "googleH": 18,
-      "i10": 41
+      "hIndex": 144,
+      "citations": 7401,
+      "googleH": 144,
+      "i10": 141
     },
     "submitBtn": "Publicar na REMUNOM",
     "links": {
@@ -79,7 +79,7 @@
           "authors": "Diversos Autores",
           "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/4915"
         },
-        "views": 939
+        "views": 1874
       },
       {
         "id": 2,
@@ -98,7 +98,7 @@
           "authors": "João Silva, Maria Santos",
           "link": "https://remunom.ojsbr.com/multidisciplinar/article/view/2"
         },
-        "views": 778
+        "views": 1002
       }
     ]
   },
@@ -138,7 +138,7 @@
         },
         "stats": {
           "hIndex": 6,
-          "citations": 363
+          "citations": 618
         },
         "pt": {
           "submitBtn": "Publicar na RSV"
@@ -172,7 +172,7 @@
               "authors": "Autores RSV",
               "link": "https://rsv.ojsbr.com/rsv/article/view/1"
             },
-            "views": 150
+            "views": 899
           }
         ]
       },
@@ -199,8 +199,8 @@
           "linkedin": "https://www.linkedin.com/company/rjnm-issn-2675-4312-qualis-b3-2021-2024/?viewAsMember=true"
         },
         "stats": {
-          "hIndex": 4,
-          "citations": 114
+          "hIndex": 23,
+          "citations": 1257
         },
         "pt": {
           "submitBtn": "Publicar na RJNM"
@@ -234,7 +234,7 @@
               "authors": "Pedro Oliveira",
               "link": "https://jrnm.ojsbr.com/juridica/article/view/1"
             },
-            "views": 200
+            "views": 887
           }
         ]
       }
@@ -286,7 +286,7 @@
           "authors": "Autores",
           "link": "https://jirrs.org.uk/jirrs/article/view/1"
         },
-        "views": 100
+        "views": 1079
       }
     ]
   },
