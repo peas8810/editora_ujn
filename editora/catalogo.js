@@ -45,6 +45,7 @@ function showDetails(book) {
   const title = el("h2", book.title);
   title.id = "book-title";
   content.replaceChildren(el("p", book.category, "tag"), title, el("p", book.authors, "muted"));
+  if (book.coverUrl) content.append(bookCover(book));
   if (book.description) content.append(el("p", book.description, "detail-copy"));
 
   const metadata = el("dl");
@@ -65,8 +66,7 @@ function showDetails(book) {
   byId("close").focus();
 }
 
-function bookCard(book) {
-  const card = el("article", "", "card");
+function bookCover(book) {
   const cover = el("div", "", "cover");
   const placeholder = el("span", "U.");
   cover.append(placeholder);
@@ -81,13 +81,18 @@ function bookCard(book) {
     image.src = coverUrl;
     cover.append(image);
   }
+  return cover;
+}
+
+function bookCard(book) {
+  const card = el("article", "", "card");
   const body = el("div", "", "card-body");
   body.append(el("p", [book.category, book.year].filter(Boolean).join(" · "), "tag"), el("h3", book.title), el("p", book.authors, "muted"));
   const button = el("button", "Ver livro →");
   button.type = "button";
   button.setAttribute("aria-label", `Ver livro ${book.title}`);
   button.addEventListener("click", () => showDetails(book));
-  card.append(cover, body, button);
+  card.append(bookCover(book), body, button);
   return card;
 }
 
