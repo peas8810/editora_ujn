@@ -98,7 +98,7 @@ footer { background: var(--navy-dark); color: var(--surface); border-top: 1px so
 @media (max-width: 680px) {
   .shell { width: calc(100% - 32px); }
   .top { flex-wrap: wrap; gap: 12px; padding-block: 12px; }
-  .top nav { order: 3; width: 100%; gap: 22px; padding-top: 4px; }
+  .top nav { order: 3; width: 100%; flex-wrap: wrap; gap: 6px 16px; padding-top: 4px; }
   .top, .footer { column-gap: 8px; }
   .top .outline { font-size: .74rem; padding: 7px 8px; }
   .hero { grid-template-columns: 1fr; padding: 25px 0 34px; gap: 23px; }
