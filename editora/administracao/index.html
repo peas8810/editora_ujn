@@ -14,9 +14,24 @@
   <main class="shell access">
     <p class="eyebrow"><span></span> Editora UJN</p>
     <h2>Área administrativa</h2>
-    <p>Entre com a conta Google autorizada para cadastrar e editar as obras.</p>
-    <a class="primary" href="https://docs.google.com/spreadsheets/d/1f3_GJK47cEdIrJ4PJ2Rytd37fVcXwt5PPSr9RokFlFk/edit">Abrir planilha editorial <span aria-hidden="true">↗</span></a>
-    <p>Envie o PDF e a capa às <a href="https://drive.google.com/drive/folders/1Oz-bisW47wXBGkmEkR5zeJ1AfPTk0BzY">pastas editoriais</a>, cole os links no cadastro e marque a situação como <strong>Publicado</strong> quando a obra estiver pronta para aparecer no site.</p>
+    <p>Use a conta Google responsável para cadastrar a obra, enviar o PDF e acompanhar a publicação.</p>
+    <a class="primary" id="open-panel" hidden>Abrir painel editorial</a>
+    <p id="panel-status" role="status">Verificando disponibilidade do painel…</p>
   </main>
+  <script type="module">
+    const status = document.getElementById('panel-status');
+    try {
+      const response = await fetch('../config.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error();
+      const { appsScriptUrl } = await response.json();
+      if (!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(appsScriptUrl)) throw new Error();
+      const link = document.getElementById('open-panel');
+      link.href = appsScriptUrl;
+      link.hidden = false;
+      status.hidden = true;
+    } catch {
+      status.textContent = 'O painel de envio ainda aguarda a ativação da conta Google responsável.';
+    }
+  </script>
 </body>
 </html>

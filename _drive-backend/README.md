@@ -1,26 +1,18 @@
-# Editora UJN — implantação do catálogo
+# Painel editorial da Editora UJN
 
-A seção pública está em `editora/` no GitHub Pages. O painel e o catálogo usam um aplicativo da Web do Google Apps Script. O código da seção pode ser publicado antes da integração. Nesse caso a página apresenta o estado «Catálogo em preparação».
+O painel do Apps Script cadastra as obras na planilha editorial privada. A sincronização existente gera `editora/obras.json` a partir dessa planilha. Os arquivos enviados pelo painel ficam em uma pasta privada enquanto a obra é rascunho. Quando a obra é marcada como publicada, o painel move o PDF e a capa para a pasta de livros da Editora UJN e grava os links na ficha. O endereço público é gerado pelo ISBN.
 
-## Ativar o painel
+## Implantação
 
-1. Na conta Google com permissão para adicionar arquivos à [pasta da Editora UJN](https://drive.google.com/drive/folders/1Oz-bisW47wXBGkmEkR5zeJ1AfPTk0BzY), crie um projeto independente em [Apps Script](https://script.google.com/). Copie `Code.gs` e crie um arquivo HTML chamado `Admin` com o conteúdo de `Admin.html`. Nas configurações do projeto, habilite a exibição do manifesto e copie `appsscript.json`.
-2. Gere localmente uma senha aleatória para os administradores e o hash SHA-256 correspondente, usando, por exemplo, o comando Node.js abaixo. Guarde a senha em um gerenciador de senhas e distribua-a aos administradores pelo canal de credenciais adotado pela editora. Em **Configurações do projeto → Propriedades do script**, crie `ADMIN_PASSWORD_SHA256` e cole apenas o hash. O comando não envia os valores a nenhum serviço.
-3. Selecione **Implantar → Nova implantação → App da Web**. Selecione **Executar como eu** e **Quem tem acesso → Qualquer pessoa** para o catálogo poder ler os dados públicos. Autorize o acesso a Drive e Planilhas. A senha protege as operações administrativas do aplicativo.
-4. Copie o URL público de implantação, terminado em `/exec`, para `appsScriptUrl` em `editora/config.json` na branch publicada pelo GitHub Pages. Esse URL é público. Credenciais e hashes permanecem fora do GitHub.
-5. Teste em uma janela anônima. Abra `/editora/`, acesse o painel, entre, publique uma obra autorizada, confira a capa, a busca e os links, e teste a função de ocultar. Se a organização restringir links anônimos no Drive ou a implantação para qualquer pessoa no Apps Script, um administrador do Google Workspace precisa habilitar essas opções para a conta de implantação.
+1. Em [Apps Script](https://script.google.com/), use a conta Google responsável, com permissão de edição na planilha editorial e na pasta de livros. Crie um projeto independente e copie `Code.gs`, `Admin.html` (arquivo HTML chamado `Admin`) e `appsscript.json`. O manifesto habilita o serviço avançado Google Sheets.
+2. Em **Configurações do projeto → Propriedades do script**, adicione `EDITORIAL_SPREADSHEET_ID` com o ID da planilha privada que já alimenta o catálogo.
+3. Em **Implantar → Nova implantação → Aplicativo da Web**, selecione **Executar como eu** e restrinja o acesso a **Somente eu**. Autorize o Drive e o Google Sheets com a conta responsável.
+4. Salve o URL da implantação terminado em `/exec` na chave `appsScriptUrl` de `editora/config.json`. O URL do painel pode ser publicado. A conta, o ID da planilha e as permissões são administrados no Google.
+5. Abra a [área administrativa](https://publisherujn.com/editora/administracao/). Teste um rascunho com um PDF e confira a ficha e o arquivo no Drive. Confira o acesso à página por ISBN após a sincronização de uma obra autorizada.
 
-```sh
-node -e 'const c = require("node:crypto"); const p = c.randomBytes(24).toString("base64url"); console.log("Senha", p); console.log("SHA-256", c.createHash("sha256").update(p).digest("hex"));'
-```
+## Limites e operação
 
-## Operação
-
-- O primeiro cadastro cria uma planilha privada na conta de implantação para guardar a ficha e o estado das obras.
-- O painel envia o PDF e a imagem de capa à pasta editorial. Cada arquivo enviado recebe acesso de leitura para quem tiver o link, conforme indicado no formulário. O painel também aceita links de arquivos já compartilhados da pasta, opção que permite cadastrar um PDF acima de 20 MB.
-- O painel cadastra códigos e links para registros externos. Use ISBN, DOI ou outro identificador já emitido.
-- Ocultar uma obra retira a ficha do catálogo. Para retirar também o acesso direto aos arquivos, ajuste o compartilhamento deles no Drive. A substituição de arquivos mantém os anteriores no Drive.
-- Para trocar a senha, gere outra senha aleatória e atualize `ADMIN_PASSWORD_SHA256`. A troca invalida as sessões em andamento.
-- Para atualizar o código do Apps Script, edite a implantação existente e selecione uma nova versão. Isso preserva o URL público configurado no GitHub Pages.
-
-Fotografia do catálogo: [Alfons Morales, Unsplash](https://unsplash.com/photos/YLSwjSy7stw).
+- O formulário aceita PDF de até 20 MB e capa opcional de até 4 MB. O PDF é obrigatório para publicar.
+- Selecione **Publicado** e confirme a autorização para incluir a obra no catálogo. A página fica disponível depois da próxima sincronização.
+- Ao passar uma obra para **Rascunho**, o painel devolve os arquivos atuais gerenciados por ele à pasta privada. Para arquivos cadastrados fora do painel, o acesso direto segue as permissões do Drive. A troca de um arquivo mantém a versão anterior no Drive.
+- Para atualizar o painel, publique uma nova versão dentro da implantação existente, preservando seu URL.

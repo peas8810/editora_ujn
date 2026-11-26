@@ -1,6 +1,6 @@
 # Publicação de obras da Editora UJN
 
-A planilha editorial é a fonte do catálogo. Coloque os arquivos nas pastas do Google Drive e registre os respectivos links de compartilhamento. Na aba Cadastro de livros, mude a situação para Publicado quando a ficha estiver pronta. Para retirar uma obra, altere a situação editorial. Os links de arquivos no Drive seguem as permissões do próprio Drive.
+A planilha editorial é a fonte do catálogo. Cadastre a obra e envie os arquivos pela área administrativa. Selecione **Publicado** e confirme a autorização quando a ficha estiver pronta. Para retirar uma obra do catálogo, altere a situação para **Rascunho** no painel.
 
 Cada edição ou formato publicado usa seu ISBN na URL, no formato `https://publisherujn.com/editora/livro/?isbn=ISBN13`. A página apresenta o botão de consulta oficial quando esse link está preenchido na planilha. Use a aba Registros complementares para DOI, ISSN de coleção e outros registros.
 
