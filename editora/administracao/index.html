@@ -6,29 +6,17 @@
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#f8f6ef">
   <link rel="icon" href="../../assets/ujn-logo.png">
-  <link rel="stylesheet" href="../style.css?v=marca-ujn">
+  <link rel="stylesheet" href="../style.css?v=obras">
   <title>Área administrativa | Editora UJN</title>
-  <script type="module">
-    import { endpoint } from "../config.js";
-    try {
-      const url = await endpoint("../config.json");
-      if (url) document.getElementById("enter").hidden = false;
-      if (url) document.getElementById("enter").href = url.href;
-      document.getElementById("message").textContent = url
-        ? "Use o painel para cadastrar, editar e publicar obras no catálogo."
-        : "A integração com o Google Drive está em configuração.";
-    } catch {
-      document.getElementById("message").textContent = "Não foi possível carregar a configuração do painel.";
-    }
-  </script>
 </head>
 <body>
   <header class="masthead"><div class="shell top"><a class="brand" href="../"><img class="brand-logo" src="../../assets/ujn-logo.png" alt="" width="48" height="48"><span>Editora UJN</span></a><a class="outline" href="../">Voltar ao catálogo</a></div></header>
   <main class="shell access">
     <p class="eyebrow"><span></span> Editora UJN</p>
     <h2>Área administrativa</h2>
-    <p id="message" role="status">Verificando disponibilidade do painel…</p>
-    <a id="enter" class="primary" hidden>Abrir painel <span aria-hidden="true">↗</span></a>
+    <p>Entre com a conta Google autorizada para cadastrar e editar as obras.</p>
+    <a class="primary" href="https://docs.google.com/spreadsheets/d/1f3_GJK47cEdIrJ4PJ2Rytd37fVcXwt5PPSr9RokFlFk/edit">Abrir planilha editorial <span aria-hidden="true">↗</span></a>
+    <p>Envie o PDF e a capa às <a href="https://drive.google.com/drive/folders/1Oz-bisW47wXBGkmEkR5zeJ1AfPTk0BzY">pastas editoriais</a>, cole os links no cadastro e marque a situação como <strong>Publicado</strong> quando a obra estiver pronta para aparecer no site.</p>
   </main>
 </body>
 </html>
