@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <style>
+    :root{color-scheme:light;--wine:#662739;--paper:#f8f5ed;--card:#fffdf8;--ink:#281d1a;--muted:#6c5c54;--line:#ded4c8;font:16px/1.5 system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+    *,*::before,*::after{box-sizing:border-box} body{margin:0} [hidden]{display:none!important}
+    header{border-bottom:1px solid var(--line);padding:14px max(18px,calc((100% - 1050px)/2));display:flex;align-items:center;justify-content:space-between;gap:12px}
+    a{color:var(--wine);text-underline-offset:4px} header strong{font:1.55rem Georgia,serif;white-space:nowrap}
+    main{width:min(1050px,calc(100% - 32px));margin:30px auto 60px}
+    section,.panel{padding:clamp(16px,4vw,30px);background:var(--card);border:1px solid var(--line);border-radius:8px}
+    #login{max-width:470px;margin:54px auto} h1,h2,h3,p{margin:0} h1,h2{font-family:Georgia,serif;font-weight:400;line-height:1.05}h1{font-size:clamp(2rem,5vw,3rem)}h2{font-size:1.7rem}
+    p,small{color:var(--muted)} .subtitle{margin-top:9px;margin-bottom:16px}
+    form{display:grid;gap:15px} label{display:grid;gap:4px;font-size:.88rem;font-weight:650;min-width:0}
+    input,button,textarea{font:inherit;color:inherit}input,textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:white} textarea{resize:vertical}
+    button{border:1px solid var(--line);background:white;padding:8px 12px;border-radius:4px;font-weight:650;cursor:pointer}
+    button:hover{border-color:var(--wine)}button:disabled{opacity:.65;cursor:wait}
+    .primary{background:var(--wine);border-color:var(--wine);color:#fff}.primary:hover{background:#4c1d2b}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap}
+    .panel + .panel{margin-top:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.wide{grid-column:1/-1}
+    .records{display:grid;gap:8px}.record{display:grid;grid-template-columns:1fr 1fr 1.6fr auto;align-items:end;gap:8px}
+    #status{min-height:1.5em;margin:0 auto 12px;max-width:1050px;color:var(--wine);font-weight:600}
+    .entry{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid var(--line)}.entry:first-child{border-top:0}.entry h3{font-size:1rem}
+    #entries{margin-top:13px}.checkbox{display:flex;align-items:flex-start;gap:8px}.checkbox input{width:auto;margin-top:5px}
+    @media(max-width:660px){.grid,.record{grid-template-columns:1fr}.entry{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <header><strong>Editora UJN</strong><a href="https://publisherujn.com/editora/">Voltar ao catálogo ↗</a></header>
+  <main>
+    <p id="status" role="status" aria-live="polite"></p>
+    <section id="login">
+      <h1>Painel editorial</h1>
+      <p class="subtitle">Acesso reservado à administração da Editora UJN.</p>
+      <form id="login-form">
+        <label>Senha de acesso<input id="password" type="password" autocomplete="current-password" maxlength="200" required></label>
+        <button class="primary" type="submit">Entrar</button>
+      </form>
+    </section>
+    <div id="dashboard" hidden>
+      <section class="panel">
+        <div class="bar"><h1>Obras do catálogo</h1><div class="actions"><button id="reload" type="button">Atualizar</button><button id="logout" type="button">Sair</button><button class="primary" id="new-book" type="button">Nova obra</button></div></div>
+        <div id="entries"></div>
+      </section>
+      <section class="panel" id="editor" hidden>
+        <h2 id="editor-title">Nova obra</h2>
+        <p class="subtitle">Preencha a ficha pública. Em cada registro, informe o código ou o link de consulta.</p>
+        <form id="book-form">
+          <input name="id" type="hidden"><input name="revision" type="hidden"><input name="token" type="hidden"><input name="records" type="hidden">
+          <div class="grid">
+            <label>Título<input name="title" maxlength="180" required></label>
+            <label>Autoria ou organização<input name="authors" maxlength="500" required></label>
+            <label>Categoria<input name="category" maxlength="80" list="categories" required></label>
+            <datalist id="categories"><option>Livro acadêmico</option><option>Coletânea</option><option>Anais</option><option>Livro técnico</option></datalist>
+            <label>Ano<input name="year" type="number" min="1000" max="9999"></label>
+            <label>Páginas<input name="pages" type="number" min="1" max="99999"></label>
+            <label class="wide">Sinopse<textarea name="description" maxlength="2200" rows="4"></textarea></label>
+            <label>Livro em PDF · até 20 MB<input name="documentFile" type="file" accept="application/pdf,.pdf"></label>
+            <label>Ou link público do PDF no Drive<input name="documentDriveUrl" type="url" maxlength="2048" placeholder="https://drive.google.com/file/d/…"></label>
+            <label>Capa em JPG, PNG ou WebP · até 4 MB<input name="coverFile" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp"></label>
+            <label>Ou link público da capa no Drive<input name="coverDriveUrl" type="url" maxlength="2048" placeholder="https://drive.google.com/file/d/…"></label>
+          </div>
+          <small id="media-note"></small>
+          <div class="records"><h3>Códigos e links de registro</h3><div class="records" id="records"></div><div><button id="add-record" type="button">Adicionar registro</button></div></div>
+          <label class="checkbox"><input name="publicationConsent" type="checkbox" value="yes" required> Autorizo a divulgação da ficha e a leitura por link dos arquivos enviados para esta obra.</label>
+          <div class="actions"><button class="primary" id="save" type="submit">Publicar obra</button><button id="cancel" type="button">Cancelar</button></div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script>
+    const byId = (id) => document.getElementById(id);
+    const loginForm = byId('login-form');
+    const form = byId('book-form');
+    const records = byId('records');
+    let token = '';
+    let books = [];
+    let busy = false;
+
+    function setStatus(message, focus = false) {
+      const status = byId('status');
+      status.textContent = message;
+      if (focus) status.scrollIntoView({ block: 'nearest' });
+    }
+
+    function start() {
+      if (busy) return false;
+      busy = true;
+      document.querySelectorAll('button').forEach(button => { button.disabled = true; });
+      return true;
+    }
+
+    function finish() {
+      busy = false;
+      document.querySelectorAll('button').forEach(button => { button.disabled = false; });
+      byId('add-record').disabled = records.childElementCount >= 8;
+    }
+
+    function failure(error) {
+      finish();
+      const message = error?.message?.replace(/^Error: /, '') || 'Não foi possível concluir a operação.';
+      if (message.includes('Sessão expirada')) closeSession();
+      setStatus(message, true);
+    }
+
+    function run(method, args, success) {
+      google.script.run.withFailureHandler(failure).withSuccessHandler(result => {
+        finish();
+        success(result);
+      })[method](...args);
+    }
+
+    function closeSession() {
+      token = '';
+      books = [];
+      form.reset();
+      byId('editor').hidden = true;
+      byId('dashboard').hidden = true;
+      byId('login').hidden = false;
+      loginForm.reset();
+      byId('password').focus();
+    }
+
+    function create(tag, text) {
+      const element = document.createElement(tag);
+      if (text) element.textContent = text;
+      return element;
+    }
+
+    function action(text, onClick) {
+      const button = create('button', text);
+      button.type = 'button';
+      button.addEventListener('click', onClick);
+      return button;
+    }
+
+    function render() {
+      const list = byId('entries');
+      list.replaceChildren();
+      if (!books.length) list.append(create('p', 'Nenhuma obra cadastrada.'));
+      for (const book of books) {
+        const entry = create('article');
+        entry.className = 'entry';
+        const info = create('div');
+        info.append(create('h3', book.title), create('p', book.authors + ' · ' + (book.published ? 'Publicada' : 'Oculta')));
+        const actions = create('div');
+        actions.className = 'actions';
+        actions.append(action('Editar', () => openEditor(book)), action(book.published ? 'Ocultar do catálogo' : 'Republicar', () => toggle(book)));
+        entry.append(info, actions);
+        list.append(entry);
+      }
+    }
+
+    function replaceBook(book) {
+      if (books.some(item => item.id === book.id)) books = books.map(item => item.id === book.id ? book : item);
+      else books.unshift(book);
+      render();
+    }
+
+    function toggle(book) {
+      if (book.published && !confirm('Ocultar a obra do catálogo? Quem tiver os links do Drive ainda poderá abrir os arquivos.')) return;
+      if (!start()) return;
+      setStatus('Atualizando publicação…');
+      run('setPublished', [token, book.id, book.revision, !book.published], (updated) => {
+        replaceBook(updated);
+        if (form.elements.id.value === book.id) byId('editor').hidden = true;
+        setStatus(updated.published ? 'Obra republicada.' : 'Obra ocultada do catálogo.');
+      });
+    }
+
+    function addRecord(record = {}) {
+      if (records.childElementCount >= 8) return;
+      const row = create('div');
+      row.className = 'record';
+      const fields = [
+        ['Tipo', 'text', 50, record.label],
+        ['Código', 'text', 180, record.code],
+        ['Link de consulta', 'url', 2048, record.url]
+      ];
+      for (const [label, type, limit, value] of fields) {
+        const wrapper = create('label', label);
+        const input = create('input');
+        input.type = type;
+        input.maxLength = limit;
+        input.value = value || '';
+        wrapper.append(input);
+        row.append(wrapper);
+      }
+      row.append(action('Remover', () => {
+        row.remove();
+        byId('add-record').disabled = false;
+      }));
+      records.append(row);
+      byId('add-record').disabled = records.childElementCount >= 8;
+    }
+
+    function openEditor(book) {
+      form.reset();
+      records.replaceChildren();
+      byId('add-record').disabled = false;
+      form.elements.id.value = book?.id || crypto.randomUUID();
+      form.elements.revision.value = book?.revision || '';
+      for (const field of ['title', 'authors', 'category', 'description', 'year', 'pages']) {
+        form.elements[field].value = book?.[field] ?? '';
+      }
+      (book?.records || [{ label: 'ISBN' }, { label: 'DOI' }]).forEach(addRecord);
+      byId('editor-title').textContent = book ? 'Editar obra' : 'Nova obra';
+      byId('save').textContent = book ? 'Salvar alterações' : 'Publicar obra';
+      byId('media-note').textContent = book
+        ? 'Deixe os campos de arquivo e link vazios para manter o PDF e a capa atuais.'
+        : 'Use arquivos da pasta editorial no Drive ao informar links. Para PDFs maiores que 20 MB, use o link.';
+      byId('editor').hidden = false;
+      form.elements.title.focus();
+    }
+
+    loginForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!start()) return;
+      setStatus('Verificando acesso…');
+      const password = byId('password').value;
+      loginForm.reset();
+      run('login', [password], (result) => {
+        token = result.token;
+        books = result.books;
+        byId('login').hidden = true;
+        byId('dashboard').hidden = false;
+        render();
+        setStatus('');
+        byId('new-book').focus();
+      });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const limits = { documentFile: 20, coverFile: 4 };
+      for (const [name, megabytes] of Object.entries(limits)) {
+        if (form.elements[name].files[0]?.size > megabytes * 1024 * 1024) {
+          setStatus('Arquivo acima do limite de ' + megabytes + ' MB. Informe o link do arquivo no Drive.', true);
+          return;
+        }
+      }
+      if (!start()) return;
+      form.elements.token.value = token;
+      form.elements.records.value = JSON.stringify([...records.children].map(row => {
+        const [label, code, url] = [...row.querySelectorAll('input')].map(input => input.value.trim());
+        return { label, code, url };
+      }));
+      setStatus('Enviando arquivos e salvando a ficha…');
+      run('saveBook', [form], (book) => {
+        form.reset();
+        byId('editor').hidden = true;
+        replaceBook(book);
+        setStatus(book.published ? 'Obra salva no catálogo público.' : 'Alterações salvas. A obra continua oculta.', true);
+        byId('new-book').focus();
+      });
+    });
+
+    byId('new-book').addEventListener('click', () => openEditor());
+    byId('add-record').addEventListener('click', () => { addRecord(); records.lastElementChild?.querySelector('input')?.focus(); });
+    byId('cancel').addEventListener('click', () => { form.reset(); byId('editor').hidden = true; byId('new-book').focus(); });
+    byId('reload').addEventListener('click', () => {
+      if (!start()) return;
+      setStatus('Atualizando lista…');
+      run('listBooks', [token], (items) => { books = items; render(); setStatus('Lista atualizada.'); });
+    });
+    byId('logout').addEventListener('click', () => {
+      if (!start()) return;
+      const previous = token;
+      closeSession();
+      run('logout', [previous], () => setStatus('Sessão encerrada.'));
+    });
+  </script>
+</body>
+</html>

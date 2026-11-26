@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore o catálogo de livros digitais da Editora UJN. Consulte obras, autorias e seus registros editoriais.">
+  <meta name="theme-color" content="#f8f5ed">
+  <link rel="canonical" href="https://publisherujn.com/editora/">
+  <link rel="icon" href="../assets/ujn-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="catalogo.js"></script>
+  <title>Editora UJN | Catálogo de livros</title>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <header class="masthead">
+    <div class="shell top">
+      <a class="brand" href="./" aria-label="Editora UJN — início"><span class="monogram" aria-hidden="true">U.</span><span>Editora UJN<small>UNIFIED JOURNALS NETWORK</small></span></a>
+      <nav aria-label="Navegação principal">
+        <a href="#catalogo">Catálogo</a>
+        <a href="../">Portal UJN <span aria-hidden="true">↗</span></a>
+      </nav>
+      <a class="outline" id="admin" href="administracao/">Área administrativa <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="conteudo" class="shell">
+    <section class="hero" aria-labelledby="titulo">
+      <div class="hero-text">
+        <p class="eyebrow"><span></span> Editora UJN</p>
+        <h1 id="titulo">Livros que<br>compartilham<br><em>conhecimento.</em></h1>
+        <p class="intro">Conheça as obras da Editora UJN. Acesse os livros digitais, consulte suas informações bibliográficas e confira os registros de cada publicação.</p>
+        <a class="primary" href="#catalogo">Explorar catálogo <span aria-hidden="true">↓</span></a>
+      </div>
+      <figure class="hero-image">
+        <img src="biblioteca.webp" width="1200" height="704" alt="" fetchpriority="high">
+      </figure>
+    </section>
+    <section class="catalog" id="catalogo" aria-labelledby="tit-catalogo">
+      <div class="catalog-head">
+        <div><p class="eyebrow"><span></span> Acervo digital</p><h2 id="tit-catalogo">Catálogo editorial</h2></div>
+        <div class="filters" id="filters" hidden>
+          <label class="search"><span class="sr-only">Buscar por título, autor ou código</span><span class="search-icon" aria-hidden="true"></span><input type="search" id="query" placeholder="Título, autor ou código"></label>
+          <label class="select"><span class="sr-only">Categoria</span><select id="category"><option value="">Todas as categorias</option></select></label>
+        </div>
+      </div>
+      <p id="count" class="muted" aria-live="polite" hidden></p>
+      <div id="books" class="books"></div>
+      <div id="state" class="empty" role="status">
+        <span class="empty-icon" aria-hidden="true">▤</span>
+        <strong id="state-title">Carregando catálogo</strong>
+        <p id="state-copy">Consultando as publicações da editora.</p>
+      </div>
+      <noscript><p>Ative o JavaScript para consultar o catálogo.</p></noscript>
+    </section>
+  </main>
+  <footer>
+    <div class="shell footer"><a class="brand" href="./"><span class="monogram" aria-hidden="true">U.</span><span>Editora UJN</span></a><p>Unified Journals Network</p><a href="../">Voltar ao Portal UJN <span aria-hidden="true">↗</span></a></div>
+  </footer>
+  <dialog id="details" aria-labelledby="book-title">
+    <div class="dialog-top"><button type="button" id="close" aria-label="Fechar detalhes">×</button></div>
+    <div id="detail-content"></div>
+  </dialog>
+</body>
+</html>
