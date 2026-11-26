@@ -5,31 +5,31 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex">
   <style>
-    :root{color-scheme:light;--wine:#662739;--paper:#f8f5ed;--card:#fffdf8;--ink:#281d1a;--muted:#6c5c54;--line:#ded4c8;font:16px/1.5 system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+    :root{color-scheme:light;--navy:#123a66;--navy-dark:#0b2746;--orange:#fb8009;--paper:#f8f6ef;--card:#fffdf8;--ink:#1a2a3b;--muted:#526174;--line:#d8d9d4;font:16px/1.5 system-ui,sans-serif;color:var(--ink);background:var(--paper)}
     *,*::before,*::after{box-sizing:border-box} body{margin:0} [hidden]{display:none!important}
-    header{border-bottom:1px solid var(--line);padding:14px max(18px,calc((100% - 1050px)/2));display:flex;align-items:center;justify-content:space-between;gap:12px}
-    a{color:var(--wine);text-underline-offset:4px} header strong{font:1.55rem Georgia,serif;white-space:nowrap}
+    header{background:var(--card);border-top:3px solid var(--navy);border-bottom:1px solid var(--line);padding:14px max(18px,calc((100% - 1050px)/2));display:flex;align-items:center;justify-content:space-between;gap:12px}
+    a{color:var(--navy);text-underline-offset:4px} header strong{display:flex;gap:10px;align-items:center;color:var(--navy-dark);font:1.55rem Georgia,serif;white-space:nowrap}header img{width:42px;height:42px;object-fit:contain}
     main{width:min(1050px,calc(100% - 32px));margin:30px auto 60px}
     section,.panel{padding:clamp(16px,4vw,30px);background:var(--card);border:1px solid var(--line);border-radius:8px}
-    #login{max-width:470px;margin:54px auto} h1,h2,h3,p{margin:0} h1,h2{font-family:Georgia,serif;font-weight:400;line-height:1.05}h1{font-size:clamp(2rem,5vw,3rem)}h2{font-size:1.7rem}
+    #login{max-width:470px;margin:54px auto;border-top:2px solid var(--orange)} h1,h2,h3,p{margin:0} h1,h2{color:var(--navy-dark);font-family:Georgia,serif;font-weight:400;line-height:1.05}h1{font-size:clamp(2rem,5vw,3rem)}h2{font-size:1.7rem}
     p,small{color:var(--muted)} .subtitle{margin-top:9px;margin-bottom:16px}
     form{display:grid;gap:15px} label{display:grid;gap:4px;font-size:.88rem;font-weight:650;min-width:0}
     input,button,textarea{font:inherit;color:inherit}input,textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:white} textarea{resize:vertical}
     button{border:1px solid var(--line);background:white;padding:8px 12px;border-radius:4px;font-weight:650;cursor:pointer}
-    button:hover{border-color:var(--wine)}button:disabled{opacity:.65;cursor:wait}
-    .primary{background:var(--wine);border-color:var(--wine);color:#fff}.primary:hover{background:#4c1d2b}
-    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+    button:hover{border-color:var(--navy)}button:disabled{opacity:.65;cursor:wait}
+    .primary{background:var(--navy);border-color:var(--navy);color:#fff}.primary:hover{background:var(--navy-dark)}
+    button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
     .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.actions{display:flex;gap:8px;flex-wrap:wrap}
     .panel + .panel{margin-top:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.wide{grid-column:1/-1}
     .records{display:grid;gap:8px}.record{display:grid;grid-template-columns:1fr 1fr 1.6fr auto;align-items:end;gap:8px}
-    #status{min-height:1.5em;margin:0 auto 12px;max-width:1050px;color:var(--wine);font-weight:600}
+    #status{min-height:1.5em;margin:0 auto 12px;max-width:1050px;color:var(--navy);font-weight:600}
     .entry{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid var(--line)}.entry:first-child{border-top:0}.entry h3{font-size:1rem}
     #entries{margin-top:13px}.checkbox{display:flex;align-items:flex-start;gap:8px}.checkbox input{width:auto;margin-top:5px}
     @media(max-width:660px){.grid,.record{grid-template-columns:1fr}.entry{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
-  <header><strong>Editora UJN</strong><a href="https://publisherujn.com/editora/">Voltar ao catálogo ↗</a></header>
+  <header><strong><img src="https://publisherujn.com/assets/ujn-logo.png" alt="" width="42" height="42">Editora UJN</strong><a href="https://publisherujn.com/editora/">Voltar ao catálogo ↗</a></header>
   <main>
     <p id="status" role="status" aria-live="polite"></p>
     <section id="login">
