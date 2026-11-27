@@ -2,6 +2,8 @@ const carousel = document.querySelector(".editorial-carousel");
 const controls = carousel.querySelector(".carousel-controls");
 const gallery = carousel.querySelector(".carousel-images");
 const slides = Array.from(gallery.querySelectorAll("img"));
+const picker = carousel.querySelector(".carousel-picker");
+const choices = Array.from(picker.querySelectorAll("button"));
 const rotation = controls.querySelector("[data-rotation]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const interval = 4500;
@@ -15,6 +17,8 @@ function show(index) {
   current = (index + slides.length) % slides.length;
   slides.forEach((slide, position) => {
     slide.hidden = position !== current;
+    if (slide.hidden) choices[position].removeAttribute("aria-current");
+    else choices[position].setAttribute("aria-current", "true");
   });
 }
 
@@ -35,6 +39,13 @@ rotation.addEventListener("click", () => {
 controls.querySelectorAll("[data-step]").forEach((button) => {
   button.addEventListener("click", () => {
     show(current + Number(button.dataset.step));
+    schedule();
+  });
+});
+
+choices.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    show(index);
     schedule();
   });
 });
@@ -60,4 +71,5 @@ new IntersectionObserver(([entry]) => {
 gallery.classList.add("is-carousel");
 show(0);
 controls.hidden = false;
+picker.hidden = false;
 schedule();
