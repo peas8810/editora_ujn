@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#f8f6ef">
   <link rel="canonical" href="https://publisherujn.com/editora/">
   <link rel="icon" href="../assets/ujn-logo.png">
-  <link rel="stylesheet" href="style.css?v=carrossel">
+  <link rel="stylesheet" href="style.css?v=carrossel-2">
   <script type="module" src="catalogo.js?v=obras"></script>
-  <script type="module" src="carrossel.js"></script>
+  <script type="module" src="carrossel.js?v=2"></script>
   <title>Editora UJN | Catálogo de livros</title>
 </head>
 <body>
@@ -56,18 +56,18 @@
     </section>
     <section class="editorial-carousel" aria-labelledby="titulo-carrossel" aria-roledescription="carrossel">
       <h2 id="titulo-carrossel">Registros e plataformas editoriais</h2>
+      <div class="carousel-images" id="imagens-editoriais">
+        <img src="imagens/cbl.png" width="675" height="625" alt="Editora associada à Câmara Brasileira do Livro (CBL)" fetchpriority="low" decoding="async">
+        <img src="imagens/isbn.png" width="247" height="162" alt="ISBN" fetchpriority="low" decoding="async">
+        <img src="imagens/doi.png" width="700" height="180" alt="DOI" fetchpriority="low" decoding="async">
+        <img src="imagens/jabuti.png" width="525" height="375" alt="Câmara Brasileira do Livro e Jabuti" fetchpriority="low" decoding="async">
+        <img src="imagens/google-books.png" width="549" height="244" alt="Google Books" fetchpriority="low" decoding="async">
+        <img src="imagens/kindle.png" width="213" height="88" alt="Kindle" fetchpriority="low" decoding="async">
+      </div>
       <div class="carousel-controls" hidden>
         <button type="button" data-rotation aria-controls="imagens-editoriais">Pausar</button>
         <button type="button" data-step="-1" aria-controls="imagens-editoriais">Anterior</button>
         <button type="button" data-step="1" aria-controls="imagens-editoriais">Próxima</button>
-      </div>
-      <div class="carousel-images" id="imagens-editoriais">
-        <img src="imagens/cbl.png" width="675" height="625" alt="Editora associada à Câmara Brasileira do Livro (CBL)" loading="lazy">
-        <img src="imagens/isbn.png" width="247" height="162" alt="ISBN" loading="lazy">
-        <img src="imagens/doi.png" width="700" height="180" alt="DOI" loading="lazy">
-        <img src="imagens/jabuti.png" width="525" height="375" alt="Câmara Brasileira do Livro e Jabuti" loading="lazy">
-        <img src="imagens/google-books.png" width="549" height="244" alt="Google Books" loading="lazy">
-        <img src="imagens/kindle.png" width="213" height="88" alt="Kindle" loading="lazy">
       </div>
     </section>
   </main>

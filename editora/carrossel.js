@@ -8,7 +8,6 @@ const interval = 4500;
 
 let current = 0;
 let playing = !reducedMotion.matches;
-let hovered = false;
 let visible = false;
 let timer;
 
@@ -23,7 +22,7 @@ function schedule() {
   window.clearInterval(timer);
   rotation.textContent = playing ? "Pausar" : "Reproduzir";
   gallery.setAttribute("aria-live", playing ? "off" : "polite");
-  if (playing && visible && !hovered && !document.hidden) {
+  if (playing && visible && !document.hidden) {
     timer = window.setInterval(() => show(current + 1), interval);
   }
 }
@@ -34,17 +33,10 @@ rotation.addEventListener("click", () => {
 });
 
 controls.querySelectorAll("[data-step]").forEach((button) => {
-  button.addEventListener("click", () => show(current + Number(button.dataset.step)));
-});
-
-carousel.addEventListener("mouseenter", () => {
-  hovered = true;
-  schedule();
-});
-
-carousel.addEventListener("mouseleave", () => {
-  hovered = false;
-  schedule();
+  button.addEventListener("click", () => {
+    show(current + Number(button.dataset.step));
+    schedule();
+  });
 });
 
 carousel.addEventListener("focusin", (event) => {

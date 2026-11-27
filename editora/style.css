@@ -79,9 +79,15 @@ select { max-width: 200px; }
 .card h3 { font-size: 1.85rem; line-height: 1; }
 .card-link { align-self: flex-start; color: var(--navy); padding: 0; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; font-weight: 700; margin: 0 17px 15px; }
 #count { margin-bottom: 12px; }
-.editorial-carousel { border-top: 1px solid var(--line); padding: 30px 0 48px; }
-.editorial-carousel h2 { font-size: clamp(2.3rem, 4vw, 3.2rem); }
-.carousel-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 18px 12px; }
+.editorial-carousel { border-top: 1px solid var(--line); padding: 30px 0 48px; text-align: center; }
+.editorial-carousel h2 { font-size: clamp(2.3rem, 4vw, 3.2rem); line-height: 1.02; }
+.carousel-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: min(100%, 22rem);
+  margin: 14px auto 0;
+}
 .carousel-controls button {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -91,7 +97,7 @@ select { max-width: 200px; }
   font-size: .9rem;
   font-weight: 700;
   min-height: 44px;
-  padding: 6px 12px;
+  padding: 6px 4px;
 }
 .carousel-controls button:hover { border-color: var(--navy); }
 .carousel-images {
@@ -100,14 +106,37 @@ select { max-width: 200px; }
   align-items: center;
   justify-items: center;
   gap: 16px;
-  margin-top: 12px;
+  max-width: 38rem;
+  margin: 22px auto 0;
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 4px;
   background: white;
 }
-.carousel-images.is-carousel { grid-template-columns: 1fr; }
-.carousel-images img { display: block; max-width: 100%; height: clamp(150px, 32vw, 220px); object-fit: contain; }
+.carousel-images img {
+  display: block;
+  width: 100%;
+  height: 9rem;
+  object-fit: contain;
+  object-position: center;
+}
+.carousel-images.is-carousel {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: clamp(10rem, 35vw, 15rem);
+}
+.carousel-images.is-carousel img {
+  max-width: 25rem;
+  height: 100%;
+  min-height: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .carousel-images.is-carousel img:not([hidden]) { animation: carousel-fade-in 220ms ease-out; }
+}
+@keyframes carousel-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 footer { background: var(--navy-dark); color: var(--surface); border-top: 1px solid var(--navy); }
 .footer { min-height: 84px; }
 .footer .brand { color: inherit; }
