@@ -7,7 +7,8 @@ const RECORD_FIELDS = ['isbn', 'label', 'code', 'url', 'documentUrl'];
 const RECORD_HEADERS = ['ISBN do livro', 'Tipo de registro', 'Código', 'Link oficial do registro', 'Link de documento público'];
 const MIB = 1024 * 1024;
 
-function doGet() {
+function doGet(event) {
+  if (event?.parameter?.view === 'submit') return publicSubmissionPage_();
   authorize_();
   return HtmlService.createHtmlOutputFromFile('Admin')
     .setTitle('Painel editorial | Editora UJN')

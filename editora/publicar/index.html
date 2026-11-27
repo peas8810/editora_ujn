@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Envie seu manuscrito para avaliação editorial na Editora UJN.">
+  <link rel="icon" href="../../assets/ujn-logo.png">
+  <link rel="stylesheet" href="../style.css?v=publicar-livro">
+  <title>Quero publicar meu livro | Editora UJN</title>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell top">
+      <a class="brand" href="../"><img class="brand-logo" src="../../assets/ujn-logo.png" alt="" width="48" height="48"><span>Editora UJN</span></a>
+      <nav aria-label="Navegação principal"><a href="../#catalogo">Catálogo</a><a href="../planos/">Planos de publicação</a></nav>
+    </div>
+  </header>
+  <main class="shell access">
+    <h1 style="font-size:clamp(2.8rem,8vw,5rem);line-height:1">Quero publicar meu livro</h1>
+    <p>Envie seu nome, e-mail, título do livro e manuscrito em PDF para avaliação editorial. A equipe usa o e-mail informado para responder sobre sua proposta.</p>
+    <a class="primary" id="proposal-link" hidden>Preencher formulário de submissão</a>
+    <p id="proposal-status" role="status">Verificando disponibilidade do formulário…</p>
+    <p><a href="https://wa.me/553189474110?text=Ol%C3%A1%21%20Quero%20publicar%20meu%20livro%20com%20a%20Editora%20UJN.">Falar com a Editora no WhatsApp</a></p>
+    <noscript><p>Ative o JavaScript para consultar a disponibilidade do formulário.</p></noscript>
+  </main>
+  <script type="module">
+    import { endpoint } from '../config.js';
+    const status = document.getElementById('proposal-status');
+    try {
+      const url = await endpoint('../config.json', 'submissionScriptUrl');
+      if (!url) throw new Error();
+      url.searchParams.set('view', 'submit');
+      const link = document.getElementById('proposal-link');
+      link.href = url.href;
+      link.hidden = false;
+      status.hidden = true;
+      window.location.replace(url.href);
+    } catch {
+      status.textContent = 'O formulário online ainda aguarda ativação. Você pode falar com a equipe pelo WhatsApp.';
+    }
+  </script>
+</body>
+</html>

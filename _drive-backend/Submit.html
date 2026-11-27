@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <style>
+    :root{font:16px/1.55 system-ui,sans-serif;color:#1a2a3b;background:#f8f6ef}
+    *{box-sizing:border-box}body{margin:0}[hidden]{display:none!important}
+    main{width:min(640px,calc(100% - 32px));margin:32px auto 56px}
+    header{padding:14px max(16px,calc((100% - 640px)/2));border-top:3px solid #123a66;border-bottom:1px solid #d8d9d4;background:#fffdf8}
+    a{color:#123a66;text-underline-offset:4px}
+    h1{font:clamp(2.4rem,8vw,3.8rem)/1 Georgia,serif;color:#0b2746;margin:18px 0 12px}
+    p{margin:0 0 16px;color:#526174}
+    form{display:grid;gap:16px;background:#fffdf8;border:1px solid #d8d9d4;border-radius:14px;padding:clamp(16px,5vw,32px)}
+    label{display:grid;gap:6px;font-weight:650;min-width:0}
+    input,button{font:inherit;color:inherit;min-height:44px}
+    input{width:100%;min-width:0;padding:8px 10px;border:1px solid #a5acb2;border-radius:6px;background:#fff}
+    small{font-weight:400;color:#526174}
+    button{justify-self:start;background:#123a66;color:white;border:0;border-radius:6px;padding:10px 18px;font-weight:700;cursor:pointer}
+    button:disabled{opacity:.6}
+    :focus-visible{outline:2px solid #123a66;outline-offset:3px}
+    #result{margin-top:16px;color:#0b2746;overflow-wrap:anywhere}
+    #result[data-error]{color:#8b2323}
+  </style>
+</head>
+<body>
+  <header><a href="https://publisherujn.com/editora/">Editora UJN · Voltar ao catálogo</a></header>
+  <main>
+    <h1>Quero publicar meu livro</h1>
+    <p>Envie seu manuscrito para avaliação editorial. A equipe usará o e-mail informado para responder sobre a proposta.</p>
+    <? if (token) { ?>
+    <form id="proposal">
+      <input type="hidden" name="token" value="<?= token ?>">
+      <div hidden><label>Site<input name="website" autocomplete="off" tabindex="-1"></label></div>
+      <label>Nome completo<input name="authorName" autocomplete="name" maxlength="150" required></label>
+      <label>E-mail<input name="email" type="email" autocomplete="email" maxlength="254" required></label>
+      <label>Título do livro<input name="title" maxlength="250" required></label>
+      <label>Manuscrito em PDF<input name="documentFile" type="file" accept="application/pdf,.pdf" aria-describedby="upload-note" required>
+        <small id="upload-note">Até 20 MB. O arquivo fica disponível para a equipe editorial.</small>
+      </label>
+      <button type="submit">Enviar para avaliação</button>
+    </form>
+    <? } ?>
+    <p id="result" role="status" aria-live="polite"><? if (!token) { ?>O formulário ainda aguarda ativação. Fale com a equipe pelo <a href="https://wa.me/553189474110">WhatsApp</a>.<? } ?></p>
+    <noscript><p>Ative o JavaScript para enviar a proposta.</p></noscript>
+  </main>
+  <script>
+    const form = document.getElementById('proposal');
+    const result = document.getElementById('result');
+    const button = form?.querySelector('button');
+    form?.addEventListener('submit', event => {
+      event.preventDefault();
+      delete result.dataset.error;
+      const file = form.elements.documentFile.files[0];
+      if (!file || file.size > 20 * 1024 * 1024) {
+        result.dataset.error = '';
+        result.textContent = 'Anexe um PDF de até 20 MB.';
+        form.elements.documentFile.focus();
+        return;
+      }
+      button.disabled = true;
+      result.textContent = 'Enviando manuscrito…';
+      google.script.run.withSuccessHandler(proposal => {
+        form.reset();
+        form.hidden = true;
+        result.tabIndex = -1;
+        result.textContent = 'Proposta registrada. Guarde o protocolo ' + proposal.id + '. A equipe entrará em contato pelo e-mail informado.';
+        result.focus();
+      }).withFailureHandler(error => {
+        button.disabled = false;
+        result.dataset.error = '';
+        result.textContent = error?.message?.replace(/^Error: /, '') || 'Não foi possível enviar. Tente novamente.';
+      }).submitBookProposal(form);
+    });
+  </script>
+</body>
+</html>

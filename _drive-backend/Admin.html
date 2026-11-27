@@ -24,6 +24,8 @@
     .records{display:grid;gap:8px}.record{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;align-items:end;gap:8px}
     #status{min-height:1.5em;margin:0 auto 12px;max-width:1050px;color:var(--navy);font-weight:600}
     .entry{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:13px 0;border-top:1px solid var(--line)}.entry:first-child{border-top:0}.entry h3{font-size:1rem}
+    .proposal{padding:14px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.proposal p{margin:4px 0 9px}.proposal .actions{align-items:center}
+    #proposal-form{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
     #entries{margin-top:13px}.checkbox{display:flex;align-items:flex-start;gap:8px}.checkbox input{width:auto;margin-top:5px}
     @media(max-width:660px){.grid,.record{grid-template-columns:1fr}.entry{flex-direction:column;align-items:flex-start}}
   </style>
@@ -32,6 +34,22 @@
   <header><strong><img src="https://publisherujn.com/assets/ujn-logo.png" alt="" width="42" height="42">Editora UJN</strong><a href="https://publisherujn.com/editora/">Voltar ao catálogo</a></header>
   <main>
     <p id="status" role="status" aria-live="polite"></p>
+    <section class="panel" aria-labelledby="proposal-title">
+      <div class="bar"><h2 id="proposal-title">Submissões de livros</h2><button id="reload-proposals" type="button">Consultar submissões</button></div>
+      <p class="subtitle" id="proposal-status" role="status">Consulte os manuscritos para avaliar novas propostas.</p>
+      <button id="setup-proposals" type="button" hidden>Preparar submissões</button>
+      <div id="proposals"></div>
+      <form id="proposal-form" hidden>
+        <h3 id="accept-title">Aceitar livro</h3>
+        <input name="proposalId" type="hidden">
+        <div class="grid">
+          <label>Valor do custeio em reais<input name="amount" inputmode="decimal" maxlength="18" placeholder="750,00" required></label>
+          <label>QR Code Pix do banco (PNG ou JPG, até 2 MB)<input name="qrFile" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" required></label>
+        </div>
+        <label class="checkbox"><input name="confirmPix" type="checkbox" value="yes" required> Conferi o recebedor e o valor da cobrança no meu banco.</label>
+        <div class="actions"><button class="primary" type="submit">Aceitar e enviar e-mail com Pix</button><button id="cancel-proposal" type="button">Cancelar</button></div>
+      </form>
+    </section>
     <section class="panel">
       <div class="bar"><h1>Painel editorial</h1><div class="actions"><button id="reload" type="button">Atualizar</button><button class="primary" id="new-book" type="button" disabled>Nova obra</button></div></div>
       <div id="entries"></div>
@@ -108,6 +126,81 @@
       button.addEventListener('click', onClick);
       return button;
     }
+
+    const proposalForm = byId('proposal-form');
+    const proposalStatus = byId('proposal-status');
+
+    function runProposal(method, args, message, success) {
+      if (busy) return;
+      setBusy(true);
+      proposalStatus.textContent = message;
+      google.script.run.withFailureHandler(error => {
+        setBusy(false);
+        proposalStatus.textContent = error?.message?.replace(/^Error: /, '') || 'Não foi possível concluir a operação.';
+      }).withSuccessHandler(result => {
+        setBusy(false);
+        success(result);
+      })[method](...args);
+    }
+
+    function loadProposals(message) {
+      runProposal('listBookProposals', [], 'Consultando submissões…', result => {
+        byId('setup-proposals').hidden = result.configured;
+        proposalStatus.textContent = message || (result.configured
+          ? (result.items.length ? result.items.length + ' proposta(s) registrada(s).' : 'Nenhuma proposta registrada.')
+          : 'Prepare a pasta privada e a aba de submissões para iniciar.');
+        const list = byId('proposals');
+        list.replaceChildren();
+        for (const item of result.items) {
+          const entry = create('article');
+          entry.className = 'proposal';
+          const date = new Date(item.received).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' });
+          entry.append(create('h3', item.title), create('p', item.name + ' · ' + item.email),
+            create('p', [item.status, item.amount, date, 'Aviso à editora: ' + item.notification].filter(Boolean).join(' · ')));
+          const actions = create('div');
+          actions.className = 'actions';
+          const documentLink = create('a', 'Abrir manuscrito no Drive');
+          documentLink.href = 'https://drive.google.com/file/d/' + encodeURIComponent(item.fileId) + '/view';
+          documentLink.target = '_blank';
+          documentLink.rel = 'noopener';
+          actions.append(documentLink);
+          if (item.status === 'Em análise') {
+            actions.append(action('Preparar aceite', () => {
+              proposalForm.reset();
+              proposalForm.elements.proposalId.value = item.id;
+              byId('accept-title').textContent = 'Aceitar: ' + item.title;
+              proposalForm.hidden = false;
+              proposalForm.elements.amount.focus();
+            }));
+          }
+          if (item.notification !== 'Enviado') {
+            actions.append(action('Reenviar aviso à editora', () => runProposal(
+              'retryBookProposalNotice', [item.id], 'Enviando aviso…', () => loadProposals('Aviso enviado à editora.')
+            )));
+          }
+          entry.append(actions);
+          list.append(entry);
+        }
+      });
+    }
+
+    byId('reload-proposals').addEventListener('click', () => loadProposals());
+    byId('setup-proposals').addEventListener('click', () => runProposal(
+      'setupBookSubmissions', [], 'Preparando armazenamento privado…', () => loadProposals('Armazenamento de propostas preparado.')
+    ));
+    byId('cancel-proposal').addEventListener('click', () => {
+      proposalForm.hidden = true;
+      proposalForm.reset();
+      byId('reload-proposals').focus();
+    });
+    proposalForm.addEventListener('submit', event => {
+      event.preventDefault();
+      runProposal('acceptBookProposal', [proposalForm], 'Registrando aceite e enviando QR Code Pix…', () => {
+        proposalForm.hidden = true;
+        proposalForm.reset();
+        loadProposals('Aceite registrado. E-mail com o QR Code Pix enviado ao autor.');
+      });
+    });
 
     function render(books) {
       loaded = true;

@@ -16,3 +16,13 @@ O painel do Apps Script cadastra as obras na planilha editorial privada. A sincr
 - Selecione **Publicado** e confirme a autorização para incluir a obra no catálogo. A página fica disponível depois da próxima sincronização.
 - Ao passar uma obra para **Rascunho**, o painel devolve os arquivos atuais gerenciados por ele à pasta privada. Para arquivos cadastrados fora do painel, o acesso direto segue as permissões do Drive. A troca de um arquivo mantém a versão anterior no Drive.
 - Para atualizar o painel, publique uma nova versão dentro da implantação existente, preservando seu URL.
+
+## Ativar submissões de livros
+
+1. Abra o projeto Apps Script que atende o painel existente. Atualize `Code.gs`, `Admin.html` e `appsscript.json`. Adicione o arquivo de script `Submissions.gs` e o HTML `Submit.html` (arquivo HTML chamado `Submit`).
+2. Atualize a implantação privada existente com uma versão nova. Mantenha **Executar como eu** e **Somente eu**. Autorize também o envio de e-mails. No painel, clique em **Consultar submissões** e **Preparar submissões**. Isso cria uma pasta privada no Drive e a aba **Submissões de livros** na planilha editorial.
+3. Crie uma segunda implantação do mesmo projeto com **Executar como eu** e acesso **Qualquer pessoa**. Preserve as permissões da implantação administrativa. Copie apenas o URL da nova implantação, terminado em `/exec` e sem parâmetros, para a propriedade `submissionScriptUrl` de `editora/config.json`. O site adiciona `?view=submit` e encaminha o autor ao formulário. Sem URL configurado, a página mostra o contato da editora.
+4. Teste o formulário em uma janela anônima com um PDF fictício e um e-mail de teste sob seu controle. Confira o protocolo, o PDF na pasta privada e o aviso em `contato@ujn.ojsbr.com`. Confirme que a implantação privada exige login e que o usuário anônimo tem acesso somente ao formulário.
+5. No painel, clique em **Preparar aceite**, informe o valor aprovado e anexe a imagem do QR Code Pix emitido pelo banco para aquela cobrança. Confira o recebedor e o valor antes de escolher **Aceitar e enviar e-mail com Pix**. O autor recebe o aceite e a imagem em anexo. O aceite é separado da publicação do livro no catálogo.
+
+Se o aviso à editora ficar pendente, use **Reenviar aviso à editora**. Se uma proposta ficar em **Envio a conferir**, confira o registro de execução do Apps Script e se o autor recebeu o aceite. Depois da conferência, corrija a situação na planilha editorial para **Aceito** se houve envio ou para **Em análise** para liberar uma nova tentativa confirmada.
